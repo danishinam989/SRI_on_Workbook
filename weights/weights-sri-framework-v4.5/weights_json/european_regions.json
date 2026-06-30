@@ -1,0 +1,61 @@
+{
+    "european_regions": {
+        "northern_europe": {
+            "region_name": "Northern Europe",
+            "countries": [
+                "Denmark",
+                "Finland",
+                "Sweden",
+                "Norway",
+                "Iceland"
+            ]
+        },
+        "western_europe": {
+            "region_name": "Western Europe",
+            "countries": [
+                "Austria",
+                "Belgium",
+                "France",
+                "Germany",
+                "Ireland",
+                "Luxembourg",
+                "Netherlands",
+                "United Kingdom",
+                "Liechtenstein",
+                "Switzerland"
+            ]
+        },
+        "southern_europe": {
+            "region_name": "Southern Europe",
+            "countries": [
+                "Greece",
+                "Italy",
+                "Malta",
+                "Portugal",
+                "Spain",
+                "Cyprus"
+            ]
+        },
+        "north_eastern_europe": {
+            "region_name": "North-Eastern Europe",
+            "countries": [
+                "Czechia",
+                "Estonia",
+                "Latvia",
+                "Lithuania",
+                "Poland",
+                "Slovakia"
+            ]
+        },
+        "south_eastern_europe": {
+            "region_name": "South-Eastern Europe",
+            "countries": [
+                "Bulgaria",
+                "Croatia",
+                "Hungary",
+                "Romania",
+                "Slovenia"
+            ]
+        }
+    }
+}

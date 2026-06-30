@@ -1,0 +1,156 @@
+{
+    "1": {
+        "code": "EV-15",
+        "service": "EV Charging Capacity",
+        "functionality_levels": {
+            "level_0": "not present",
+            "level_1": "ducting (or simple power plug) available",
+            "level_2": "0-9% of parking spaces has recharging points",
+            "level_3": "10-50% or parking spaces has recharging point",
+            "level_4": ">50% of parking spaces has recharging point"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "2": {
+        "code": "EV-16",
+        "service": "EV Charging Grid balancing",
+        "functionality_levels": {
+            "level_0": "Not present (uncontrolled charging)",
+            "level_1": "1-way controlled charging (e.g. including desired departure time and grid signals for optimization)",
+            "level_2": "2-way controlled charging (e.g. including desired departure time and grid signals for optimization)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": -2,
+                "level_1": 1,
+                "level_2": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "3": {
+        "code": "EV-17",
+        "service": "EV charging information and connectivity",
+        "functionality_levels": {
+            "level_0": "No information available",
+            "level_1": "Reporting information on EV charging status to occupant",
+            "level_2": "Reporting information on EV charging status to occupant AND automatic identification and authorizition of the driver to the charging station (ISO 15118 compliant)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 3
+            }
+        }
+    }
+}

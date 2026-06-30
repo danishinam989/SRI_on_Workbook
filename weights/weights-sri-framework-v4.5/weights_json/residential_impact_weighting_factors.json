@@ -1,0 +1,475 @@
+{
+    "title": "Residential Impact Weighting Factors",
+    "climate_zones": {
+        "North Europe": {
+            "domain_weightings": {
+                "Heating": {
+                    "Energy efficiency": 0.3,
+                    "Energy flexibility and storage": 0.43,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.31,
+                    "Information to occupants": 0.11
+                },
+                "Domestic hot water": {
+                    "Energy efficiency": 0.09,
+                    "Energy flexibility and storage": 0.13,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.1,
+                    "Information to occupants": 0.11
+                },
+                "Cooling": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Ventilation": {
+                    "Energy efficiency": 0.19,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.11
+                },
+                "Lighting": {
+                    "Energy efficiency": 0.04,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.0
+                },
+                "Electricity": {
+                    "Energy efficiency": 0.13,
+                    "Energy flexibility and storage": 0.19,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.14,
+                    "Information to occupants": 0.11
+                },
+                "Dynamic building envelope": {
+                    "Energy efficiency": 0.05,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.05,
+                    "Information to occupants": 0.11
+                },
+                "Electric vehicle charging": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.05,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Monitoring and control": {
+                    "Energy efficiency": 0.2,
+                    "Energy flexibility and storage": 0.2,
+                    "Comfort": 0.2,
+                    "Convenience": 0.2,
+                    "Health, well-being and accessibility": 0.2,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.2
+                }
+            },
+            "impact_weightings": {
+                "Energy efficiency": 0.16667,
+                "Energy flexibility and storage": 0.33333,
+                "Comfort": 0.08333,
+                "Convenience": 0.08333,
+                "Health, well-being and accessibility": 0.08333,
+                "Maintenance and fault prediction": 0.16667,
+                "Information to occupants": 0.08333
+            }
+        },
+        "West Europe": {
+            "domain_weightings": {
+                "Heating": {
+                    "Energy efficiency": 0.34,
+                    "Energy flexibility and storage": 0.46,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.35,
+                    "Information to occupants": 0.11
+                },
+                "Domestic hot water": {
+                    "Energy efficiency": 0.08,
+                    "Energy flexibility and storage": 0.1,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.08,
+                    "Information to occupants": 0.11
+                },
+                "Cooling": {
+                    "Energy efficiency": 0.03,
+                    "Energy flexibility and storage": 0.04,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.03,
+                    "Information to occupants": 0.11
+                },
+                "Ventilation": {
+                    "Energy efficiency": 0.18,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.18,
+                    "Information to occupants": 0.11
+                },
+                "Lighting": {
+                    "Energy efficiency": 0.01,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.0
+                },
+                "Electricity": {
+                    "Energy efficiency": 0.11,
+                    "Energy flexibility and storage": 0.15,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.11,
+                    "Information to occupants": 0.11
+                },
+                "Dynamic building envelope": {
+                    "Energy efficiency": 0.05,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.05,
+                    "Information to occupants": 0.11
+                },
+                "Electric vehicle charging": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.05,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Monitoring and control": {
+                    "Energy efficiency": 0.2,
+                    "Energy flexibility and storage": 0.2,
+                    "Comfort": 0.2,
+                    "Convenience": 0.2,
+                    "Health, well-being and accessibility": 0.2,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.2
+                }
+            },
+            "impact_weightings": {
+                "Energy efficiency": 0.16667,
+                "Energy flexibility and storage": 0.33333,
+                "Comfort": 0.08333,
+                "Convenience": 0.08333,
+                "Health, well-being and accessibility": 0.08333,
+                "Maintenance and fault prediction": 0.16667,
+                "Information to occupants": 0.08333
+            }
+        },
+        "South Europe": {
+            "domain_weightings": {
+                "Heating": {
+                    "Energy efficiency": 0.32,
+                    "Energy flexibility and storage": 0.38,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.33,
+                    "Information to occupants": 0.11
+                },
+                "Domestic hot water": {
+                    "Energy efficiency": 0.1,
+                    "Energy flexibility and storage": 0.12,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.1,
+                    "Information to occupants": 0.11
+                },
+                "Cooling": {
+                    "Energy efficiency": 0.07,
+                    "Energy flexibility and storage": 0.08,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.07,
+                    "Information to occupants": 0.11
+                },
+                "Ventilation": {
+                    "Energy efficiency": 0.09,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.1,
+                    "Information to occupants": 0.11
+                },
+                "Lighting": {
+                    "Energy efficiency": 0.03,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.0
+                },
+                "Electricity": {
+                    "Energy efficiency": 0.15,
+                    "Energy flexibility and storage": 0.17,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.15,
+                    "Information to occupants": 0.11
+                },
+                "Dynamic building envelope": {
+                    "Energy efficiency": 0.05,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.05,
+                    "Information to occupants": 0.11
+                },
+                "Electric vehicle charging": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.05,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Monitoring and control": {
+                    "Energy efficiency": 0.2,
+                    "Energy flexibility and storage": 0.2,
+                    "Comfort": 0.2,
+                    "Convenience": 0.2,
+                    "Health, well-being and accessibility": 0.2,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.2
+                }
+            },
+            "impact_weightings": {
+                "Energy efficiency": 0.16667,
+                "Energy flexibility and storage": 0.33333,
+                "Comfort": 0.08333,
+                "Convenience": 0.08333,
+                "Health, well-being and accessibility": 0.08333,
+                "Maintenance and fault prediction": 0.16667,
+                "Information to occupants": 0.08333
+            }
+        },
+        "North-East Europe": {
+            "domain_weightings": {
+                "Heating": {
+                    "Energy efficiency": 0.3,
+                    "Energy flexibility and storage": 0.41,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.31,
+                    "Information to occupants": 0.11
+                },
+                "Domestic hot water": {
+                    "Energy efficiency": 0.14,
+                    "Energy flexibility and storage": 0.19,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.14,
+                    "Information to occupants": 0.11
+                },
+                "Cooling": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Ventilation": {
+                    "Energy efficiency": 0.19,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.19,
+                    "Information to occupants": 0.11
+                },
+                "Lighting": {
+                    "Energy efficiency": 0.01,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.0
+                },
+                "Electricity": {
+                    "Energy efficiency": 0.11,
+                    "Energy flexibility and storage": 0.15,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.11,
+                    "Information to occupants": 0.11
+                },
+                "Dynamic building envelope": {
+                    "Energy efficiency": 0.05,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.05,
+                    "Information to occupants": 0.11
+                },
+                "Electric vehicle charging": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.05,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Monitoring and control": {
+                    "Energy efficiency": 0.2,
+                    "Energy flexibility and storage": 0.2,
+                    "Comfort": 0.2,
+                    "Convenience": 0.2,
+                    "Health, well-being and accessibility": 0.2,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.2
+                }
+            },
+            "impact_weightings": {
+                "Energy efficiency": 0.17,
+                "Energy flexibility and storage": 0.33,
+                "Comfort": 0.08,
+                "Convenience": 0.08,
+                "Health, well-being and accessibility": 0.08,
+                "Maintenance and fault prediction": 0.17,
+                "Information to occupants": 0.08
+            }
+        },
+        "South-East Europe": {
+            "domain_weightings": {
+                "Heating": {
+                    "Energy efficiency": 0.21,
+                    "Energy flexibility and storage": 0.24,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.21,
+                    "Information to occupants": 0.11
+                },
+                "Domestic hot water": {
+                    "Energy efficiency": 0.06,
+                    "Energy flexibility and storage": 0.07,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.06,
+                    "Information to occupants": 0.11
+                },
+                "Cooling": {
+                    "Energy efficiency": 0.15,
+                    "Energy flexibility and storage": 0.17,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.15,
+                    "Information to occupants": 0.11
+                },
+                "Ventilation": {
+                    "Energy efficiency": 0.11,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.11,
+                    "Information to occupants": 0.11
+                },
+                "Lighting": {
+                    "Energy efficiency": 0.01,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.0
+                },
+                "Electricity": {
+                    "Energy efficiency": 0.22,
+                    "Energy flexibility and storage": 0.26,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.22,
+                    "Information to occupants": 0.11
+                },
+                "Dynamic building envelope": {
+                    "Energy efficiency": 0.05,
+                    "Energy flexibility and storage": 0.0,
+                    "Comfort": 0.16,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.16,
+                    "Maintenance and fault prediction": 0.05,
+                    "Information to occupants": 0.11
+                },
+                "Electric vehicle charging": {
+                    "Energy efficiency": 0.0,
+                    "Energy flexibility and storage": 0.05,
+                    "Comfort": 0.0,
+                    "Convenience": 0.1,
+                    "Health, well-being and accessibility": 0.0,
+                    "Maintenance and fault prediction": 0.0,
+                    "Information to occupants": 0.11
+                },
+                "Monitoring and control": {
+                    "Energy efficiency": 0.2,
+                    "Energy flexibility and storage": 0.2,
+                    "Comfort": 0.2,
+                    "Convenience": 0.2,
+                    "Health, well-being and accessibility": 0.2,
+                    "Maintenance and fault prediction": 0.2,
+                    "Information to occupants": 0.2
+                }
+            },
+            "impact_weightings": {
+                "Energy efficiency": 0.16667,
+                "Energy flexibility and storage": 0.33333,
+                "Comfort": 0.08333,
+                "Convenience": 0.08333,
+                "Health, well-being and accessibility": 0.08333,
+                "Maintenance and fault prediction": 0.16667,
+                "Information to occupants": 0.08333
+            }
+        }
+    }
+}

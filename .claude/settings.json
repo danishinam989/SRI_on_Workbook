@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run --project . python -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 uv run --project . python -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 uv run --project . python \"C:/Users/danis/AppData/Local/Temp/claude/c--Work-SRI-Assessments-SRI-with-DEEP/4e425ad7-44d7-4e73-ae0d-784d8306108c/scratchpad/validate_json_vs_xlsx.py\")"
+    ]
+  }
+}

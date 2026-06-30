@@ -1,0 +1,56 @@
+{
+    "climate_zones": {
+        "North Europe": {
+            "countries": [
+                "Denmark",
+                "Finland",
+                "Sweden",
+                "Norway",
+                "Iceland"
+            ]
+        },
+        "West Europe": {
+            "countries": [
+                "Austria",
+                "Belgium",
+                "France",
+                "Germany",
+                "Ireland",
+                "Luxembourg",
+                "Netherlands",
+                "United Kingdom",
+                "Liechtenstein",
+                "Switzerland"
+            ]
+        },
+        "South Europe": {
+            "countries": [
+                "Greece",
+                "Italy",
+                "Malta",
+                "Portugal",
+                "Spain",
+                "Cyprus"
+            ]
+        },
+        "North East Europe": {
+            "countries": [
+                "Czechia",
+                "Estonia",
+                "Latvia",
+                "Lithuania",
+                "Poland",
+                "Slovakia"
+            ]
+        },
+        "South East Europe": {
+            "countries": [
+                "Bulgaria",
+                "Croatia",
+                "Hungary",
+                "Romania",
+                "Slovenia"
+            ]
+        }
+    }
+}

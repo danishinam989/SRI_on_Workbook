@@ -1,0 +1,136 @@
+{
+    "1": {
+        "code": "DE-1",
+        "service": "Window solar shading control",
+        "functionality_levels": {
+            "level_0": "No sun shading or only manual operation",
+            "level_1": "Motorized operation with manual control",
+            "level_2": "Motorized operation with automatic control based on sensor data",
+            "level_3": "Combined light/blind/HVAC control",
+            "level_4": "Predictive blind control (e.g. based on weather forecast)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "2": {
+        "code": "DE-2",
+        "service": "Window open/closed control, combined with HVAC system",
+        "functionality_levels": {
+            "level_1": "Open/closed detection to shut down heating or cooling systems",
+            "level_2": "Level 1 + Automised mechanical window opening based on room sensor data",
+            "level_3": "Level 2 + Centralized coordination of operable windows, e.g. to control free natural night cooling"
+        },
+        "impact_scores": {}
+    },
+    "3": {
+        "code": "DE-4",
+        "service": "Reporting information regarding performance of dynamic building envelope systems",
+        "functionality_levels": {
+            "level_0": "No reporting",
+            "level_1": "Position of each product & fault detection",
+            "level_2": "Position of each product, fault detection & predictive maintenance",
+            "level_3": "Position of each product, fault detection, predictive maintenance, real-time sensor data (wind, lux, temperature…)",
+            "level_4": "Position of each product, fault detection, predictive maintenance, real-time & historical sensor data (wind, lux, temperature…)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "Energy flexibility and storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "Health, well-being and accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "Maintenance and fault prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "Information to occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    }
+}

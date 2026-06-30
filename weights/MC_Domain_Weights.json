@@ -1,0 +1,418 @@
+{
+    "1": {
+        "code": "MC-3",
+        "service": "Run time management of HVAC systems",
+        "functionality_levels": {
+            "level_0": "Manual setting",
+            "level_1": "Runtime setting of heating and cooling plants following a predefined time schedule",
+            "level_2": "Heating and cooling plant on/off control based on building loads",
+            "level_3": "Heating and cooling plant on/off control based on predictive control or grid signals"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 1
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "2": {
+        "code": "MC-4",
+        "service": "Detecting faults of technical building systems and providing support to the diagnosis of these faults",
+        "functionality_levels": {
+            "level_0": "No central indication of detected faults and alarms",
+            "level_1": "With central indication of detected faults and alarms for at least 2 relevant TBS",
+            "level_2": "With central indication of detected faults and alarms for all relevant TBS",
+            "level_3": "With central indication of detected faults and alarms for all relevant TBS, including diagnosing functions"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            }
+        }
+    },
+    "3": {
+        "code": "MC-9",
+        "service": "Occupancy detection: connected services",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Occupancy detection for individual functions, e.g. lighting",
+            "level_2": "Centralised occupant detection which feeds in to several TBS such as lighting and heating"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "4": {
+        "code": "MC-13",
+        "service": "Central reporting of TBS performance and energy use",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Central or remote reporting of realtime energy use per energy carrier",
+            "level_2": "Central or remote reporting of realtime energy use per energy carrier, combining TBS of at least 2 domains in one interface",
+            "level_3": "Central or remote reporting of realtime energy use per energy carrier, combining TBS of all main domains in one interface"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            }
+        }
+    },
+    "5": {
+        "code": "MC-25",
+        "service": "Smart Grid Integration",
+        "functionality_levels": {
+            "level_0": "None - No harmonization between grid and TBS; building is operated independently from the grid load",
+            "level_1": "Demand side management possible for (some) individual TBS, but not coordinated over various domains",
+            "level_2": "Coordinated demand side management of multiple TBS"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "6": {
+        "code": "MC-28",
+        "service": "Reporting information regarding demand side management performance and operation",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Reporting information on current DSM status, including managed energy flows",
+            "level_2": "Reporting information on currenthistorical and predicted DSM status, including managed energy flows"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 3
+            }
+        }
+    },
+    "7": {
+        "code": "MC-29",
+        "service": "Override of DSM control",
+        "functionality_levels": {
+            "level_0": "No DSM control",
+            "level_1": "DSM control without the possibility to override this control by the building user (occupant or facility manager)",
+            "level_2": "Manual override and reactivation of DSM control by the building user",
+            "level_3": "Scheduled override of DSM control (and reactivation) by the building user",
+            "level_4": "Scheduled override of DSM control and reactivation with optimised control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 3,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": -2,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": -1,
+                "level_2": 0,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": -2,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "8": {
+        "code": "MC-30",
+        "service": "Single platform that allows automated control & coordination between TBS + optimization of energy flow based on occupancy, weather and grid signals",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Single platform that allows manual control of multiple TBS",
+            "level_2": "Single platform that allows automated control & coordination between TBS",
+            "level_3": "Single platform that allows automated control & coordination between TBS + optimization of energy flow based on occupancy, weather and grid signals"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    }
+}

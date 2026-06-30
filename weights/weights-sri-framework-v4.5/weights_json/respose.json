@@ -1,0 +1,124 @@
+{
+    "status": 200,
+    "message": "Success",
+    "scores": {
+        "Total_SRI_Score": 98,
+        "Domain_Weighted_Scores": {
+            "Energy Efficiency": 96.0,
+            "Energy Flexibility and Storage": 100.0,
+            "Comfort": 95.2,
+            "Convenience": 95.34,
+            "Health, Well Being and Accessibility": 94.67,
+            "Maintenance and Fault Prediction": 101.0,
+            "Information to Occupants": 97.0
+        },
+        "Heating": {
+            "adjusted_sri_scores_heating": {
+                "Energy Efficiency": 27.0,
+                "Energy Flexibility and Storage": 41.0,
+                "Comfort": 16.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 16.0,
+                "Maintenance and Fault Prediction": 32.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_heating": 153.0
+        },
+        "Cooling": {
+            "adjusted_sri_scores_cooling": {
+                "Energy Efficiency": 13.0,
+                "Energy Flexibility and Storage": 19.0,
+                "Comfort": 16.0,
+                "Convenience": 9.09,
+                "Health, Well Being and Accessibility": 16.0,
+                "Maintenance and Fault Prediction": 15.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_cooling": 99.09
+        },
+        "DWH": {
+            "adjusted_sri_scores_dwh": {
+                "Energy Efficiency": 8.0,
+                "Energy Flexibility and Storage": 12.0,
+                "Comfort": 0.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 0.0,
+                "Maintenance and Fault Prediction": 10.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_dwh": 51.0
+        },
+        "Lighting": {
+            "adjusted_sri_scores_lighting": {
+                "Energy Efficiency": 10.0,
+                "Energy Flexibility and Storage": 0.0,
+                "Comfort": 16.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 16.0,
+                "Maintenance and Fault Prediction": 0.0,
+                "Information to Occupants": 0.0
+            },
+            "total_sri_score_lighting": 52.0
+        },
+        "Ventilation": {
+            "adjusted_sri_scores_ventilation": {
+                "Energy Efficiency": 11.0,
+                "Energy Flexibility and Storage": 0.0,
+                "Comfort": 11.2,
+                "Convenience": 6.25,
+                "Health, Well Being and Accessibility": 10.67,
+                "Maintenance and Fault Prediction": 17.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_ventilation": 67.12
+        },
+        "Envelope": {
+            "adjusted_sri_scores_envelope": {
+                "Energy Efficiency": 5.0,
+                "Energy Flexibility and Storage": 0.0,
+                "Comfort": 16.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 16.0,
+                "Maintenance and Fault Prediction": 5.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_envelope": 63.0
+        },
+        "EV_Charging": {
+            "adjusted_sri_scores_ev_charging": {
+                "Energy Efficiency": 0.0,
+                "Energy Flexibility and Storage": 5.0,
+                "Comfort": 0.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 0.0,
+                "Maintenance and Fault Prediction": 0.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_ev_charging": 26.0
+        },
+        "Electricity": {
+            "adjusted_sri_scores_electricity": {
+                "Energy Efficiency": 2.0,
+                "Energy Flexibility and Storage": 3.0,
+                "Comfort": 0.0,
+                "Convenience": 10.0,
+                "Health, Well Being and Accessibility": 0.0,
+                "Maintenance and Fault Prediction": 2.0,
+                "Information to Occupants": 11.0
+            },
+            "total_sri_score_electricity": 28.0
+        },
+        "Monitoring": {
+            "adjusted_sri_scores_monitoring": {
+                "Energy Efficiency": 20.0,
+                "Energy Flexibility and Storage": 20.0,
+                "Comfort": 20.0,
+                "Convenience": 20.0,
+                "Health, Well Being and Accessibility": 20.0,
+                "Maintenance and Fault Prediction": 20.0,
+                "Information to Occupants": 20.0
+            },
+            "total_sri_score_monitoring": 140.0
+        }
+    }
+}

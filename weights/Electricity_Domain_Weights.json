@@ -1,0 +1,323 @@
+{
+    "1": {
+        "code": "E-2",
+        "service": "Reporting information regarding local electricity generation",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Current generation data available",
+            "level_2": "Actual values and historical data",
+            "level_3": "Performance evaluation including forecasting and/or benchmarking",
+            "level_4": "Performance evaluation including forecasting and/or benchmarking; also including predictive management and fault detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    },
+    "2": {
+        "code": "E-3",
+        "service": "Storage of (locally generated) electricity",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "On site storage of electricity (e.g. electric battery)",
+            "level_2": "On site storage of energy (e.g. electric battery or thermal storage) with controller based on grid signals",
+            "level_3": "On site storage of energy (e.g. electric battery or thermal storage) with controller optimising the use of locally generated electricity",
+            "level_4": "On site storage of energy (e.g. electric battery or thermal storage) with controller optimising the use of locally generated electricity and possibility to feed back into the grid"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "3": {
+        "code": "E-4",
+        "service": "Optimizing self-consumption of locally generated electricity",
+        "functionality_levels": {
+            "level_1": "Scheduling electricity consumption (plug loads, white goods, etc.)",
+            "level_2": "Automated management of local electricity consumption based on current renewable energy availability",
+            "level_3": "Automated management of local electricity consumption based on current and predicted energy needs and renewable energy availability"
+        },
+        "impact_scores": {}
+    },
+    "4": {
+        "code": "E-5",
+        "service": "Control of combined heat and power plant (CHP)",
+        "functionality_levels": {
+            "level_1": "CHP runtime control influenced by the fluctuating availability of RES; overproduction will be fed into the grid",
+            "level_2": "CHP runtime control influenced by the fluctuating availability of RES and grid signals; dynamic charging and runtime control to optimise self- consumption of renewables"
+        },
+        "impact_scores": {}
+    },
+    "5": {
+        "code": "E-8",
+        "service": "Support of (micro)grid operation modes",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Automated management of (building-level) electricity consumption based on grid signals",
+            "level_2": "Automated management of (building-level) electricity consumption and electricity supply to neighbouring buildings (microgrid) or grid",
+            "level_3": "Automated management of (building-level) electricity consumption and supply, with potential to continue limited off-grid operation (island mode)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "Energy flexibility and storage": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "Health, well-being and accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "Maintenance and fault prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "Information to occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "6": {
+        "code": "E-11",
+        "service": "Reporting information regarding energy storage",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Current state of charge (SOC) data available",
+            "level_2": "Actual values and historical data",
+            "level_3": "Performance evaluation including forecasting and/or benchmarking",
+            "level_4": "Performance evaluation including forecasting and/or benchmarking; also including predictive management and fault detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    },
+    "7": {
+        "code": "E-12",
+        "service": "Reporting information regarding electricity consumption",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "reporting on current electricity consumption on building level",
+            "level_2": "real-time feedback or benchmarking on building level",
+            "level_3": "real-time feedback or benchmarking on appliance level",
+            "level_4": "real-time feedback or benchmarking on appliance level with automated personalized recommendations"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "Energy flexibility and storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "Health, well-being and accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "Maintenance and fault prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "Information to occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    }
+}

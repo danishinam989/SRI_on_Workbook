@@ -1,0 +1,566 @@
+{
+    "1": {
+        "code": "H-1a",
+        "service": "Heat emission control",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Central automatic control (e.g. central thermostat)",
+            "level_2": "Individual room control (e.g. thermostatic valves, or electronic controller)",
+            "level_3": "Individual room control with communication between controllers and to BACS",
+            "level_4": "Individual room control with communication and occupancy detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "2": {
+        "code": "H-1b",
+        "service": "Emission control for TABS (heating mode)",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Central automatic control",
+            "level_2": "Advanced central automatic control",
+            "level_3": "Advanced central automatic control with intermittent operation and/or room temperature feedback control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1
+            }
+        }
+    },
+    "3": {
+        "code": "H-1c",
+        "service": "Control of distribution fluid temperature (supply or return air flow or water flow) - Similar function can be applied to the control of direct electric heating networks",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Outside temperature compensated control",
+            "level_2": "Demand based control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "4": {
+        "code": "H-1d",
+        "service": "Control of distribution pumps in networks",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "On off control",
+            "level_2": "Multi-Stage control",
+            "level_3": "Variable speed pump control (pump unit (internal) estimations)",
+            "level_4": "Variable speed pump control (external demand signal)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "5": {
+        "code": "H-1f",
+        "service": "Thermal Energy Storage (TES) for building heating (excluding TABS)",
+        "functionality_levels": {
+            "level_0": "Continuous storage operation",
+            "level_1": "Time-scheduled storage operation",
+            "level_2": "Load prediction based storage operation",
+            "level_3": "Heat storage capable of flexible control through grid signals (e.g. DSM)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "6": {
+        "code": "H-2a",
+        "service": "Heat generator control (all except heat pumps)",
+        "functionality_levels": {
+            "level_0": "Constant temperature control",
+            "level_1": "Variable temperature control depending on outdoor temperature",
+            "level_2": "Variable temperature control depending on the load (e.g. depending on supply water temperature set point)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "7": {
+        "code": "H-2b",
+        "service": "Heat generator control (for heat pumps)",
+        "functionality_levels": {
+            "level_0": "On/Off-control of heat generator",
+            "level_1": "Multi-stage control of heat generator capacity depending on the load or demand (e.g. on/off of several compressors)",
+            "level_2": "Variable control of heat generator capacity depending on the load or demand (e.g. hot gas bypass, inverter frequency control)",
+            "level_3": "Variable control of heat generator capacity depending on the load AND external signals from grid"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "8": {
+        "code": "H-2d",
+        "service": "Sequencing in case of different heat generators",
+        "functionality_levels": {
+            "level_0": "Priorities only based on running time",
+            "level_1": "Control according to fixed priority list: e.g. based on rated energy efficiency",
+            "level_2": "Control according to dynamic priority list (based on current energy efficiency, carbon emissions and capacity of generators, e.g. solar, geothermal heat, cogeneration plant, fossil fuels)",
+            "level_3": "Control according to dynamic priority list (based on current AND predicted load, energy efficiency, carbon emissions  and capacity of generators)",
+            "level_4": "Control according to dynamic priority list (based on current AND predicted load, energy efficiency, carbon emissions, capacity of generators AND external signals from grid)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "9": {
+        "code": "H-3",
+        "service": "Report information regarding heating system performance",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Central or remote reporting of current performance KPIs (e.g. temperatures, submetering energy usage)",
+            "level_2": "Central or remote reporting of current performance KPIs and historical data",
+            "level_3": "Central or remote reporting of performance evaluation including forecasting and/or benchmarking",
+            "level_4": "Central or remote reporting of performance evaluation including forecasting and/or benchmarking; also including predictive management and fault detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 3
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    },
+    "10": {
+        "code": "H-4",
+        "service": "Flexibility and grid interaction",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Scheduled operation of heating system",
+            "level_2": "Self-learning optimal control of heating system",
+            "level_3": "Heating system capable of flexible control through grid signals (e.g. DSM)",
+            "level_4": "Optimized control of  heating system based on local predictions and grid signals (e.g. through model predictive control)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "Energy flexibility and storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "Health, well-being and accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "Maintenance and fault prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "Information to occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    }
+}

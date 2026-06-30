@@ -1,0 +1,334 @@
+{
+    "1": {
+        "code": "V-1a",
+        "service": "Supply air flow control at the room level",
+        "functionality_levels": {
+            "level_0": "No ventilation system or manual control",
+            "level_1": "Clock control",
+            "level_2": "Occupancy detection control",
+            "level_3": "Central Demand Control based on air quality sensors (CO2, VOC, humidity, ...)",
+            "level_4": "Local Demand Control based on air quality sensors (CO2, VOC,...) with local flow from/to the zone regulated by dampers"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "2": {
+        "code": "V-1c",
+        "service": "Air flow or pressure control at the air handler level",
+        "functionality_levels": {
+            "level_0": "No automatic control: Continuously supplies of air flow for a maximum load of all rooms",
+            "level_1": "On off time control: Continuously supplies of air flow for a maximum load of all rooms during nominal occupancy time",
+            "level_2": "Multi-stage control: To reduce the auxiliary energy demand of the fan",
+            "level_3": "Automatic flow or pressure control without pressure reset: Load dependent supplies of air flow for the demand of all connected rooms.",
+            "level_4": "Automatic flow or pressure control with pressure reset: Load dependent supplies of air flow for the demand of all connected rooms (for variable air volume systems with VFD)."
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "3": {
+        "code": "V-2c",
+        "service": "Heat recovery control: prevention of overheating",
+        "functionality_levels": {
+            "level_0": "Without overheating control",
+            "level_1": "Modulate or bypass heat recovery based on sensors in air exhaust",
+            "level_2": "Modulate or bypass heat recovery based on multiple room temperature sensors or predictive control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "4": {
+        "code": "V-2d",
+        "service": "Supply air temperature control at the air handling unit level",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Constant setpoint: A control loop enables to control the supply air temperature, the setpoint is constant and can only be modified by a manual action",
+            "level_2": "Variable set point with outdoor temperature compensation",
+            "level_3": "Variable set point with load dependant compensation. A control loop enables to control the supply air temperature. The setpoint is defined as a function of the loads in the room"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "5": {
+        "code": "V-3",
+        "service": "Free cooling with mechanical ventilation system",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Night cooling",
+            "level_2": "Free cooling: air flows modulated during all periods of time to minimize the amount of mechanical cooling",
+            "level_3": "H,x- directed control: The amount of outside air and recirculation air are modulated during all periods of time to minimize the amount of mechanical cooling. Calculation is performed on the basis of temperatures and humidity"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 3,
+                "level_2": 3,
+                "level_3": 3
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "6": {
+        "code": "V-6",
+        "service": "Reporting information regarding IAQ",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Air quality sensors (e.g. CO2) and real time autonomous monitoring",
+            "level_2": "Real time monitoring & historical information of IAQ available to occupants",
+            "level_3": "Real time monitoring & historical information of IAQ available to occupants + warning on maintenance needs or occupant actions (e.g. window opening)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 3,
+                "level_3": 3
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            }
+        }
+    }
+}

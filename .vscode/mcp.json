@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "Blockchained Docs": {
+      "type": "sse",
+      "url": "https://gitmcp.io/danishinam989/Blockchained/tree/production"
+    }
+  }
+}

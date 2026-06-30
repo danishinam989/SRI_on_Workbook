@@ -1,0 +1,464 @@
+{
+    "1": {
+        "code": "C-1a",
+        "service": "Cooling emission control",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Central automatic control",
+            "level_2": "Individual room control",
+            "level_3": "Individual room control with communication between controllers and to BACS",
+            "level_4": "Individual room control with communication and occupancy detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "2": {
+        "code": "C-1b",
+        "service": "Emission control for TABS (cooling mode)",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Central automatic control",
+            "level_2": "Advanced central automatic control",
+            "level_3": "Advanced central automatic control with intermittent operation and/or room temperature feedback control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 3
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 1
+            }
+        }
+    },
+    "3": {
+        "code": "C-1c",
+        "service": "Control of distribution network chilled water temperature (supply or return)",
+        "functionality_levels": {
+            "level_0": "Constant temperature control",
+            "level_1": "Outside temperature compensated control",
+            "level_2": "Demand based control"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "4": {
+        "code": "C-1d",
+        "service": "Control of distribution pumps in networks",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "On off control",
+            "level_2": "Multi-Stage control",
+            "level_3": "Variable speed pump control (pump unit (internal) estimations)",
+            "level_4": "Variable speed pump control (external demand signal)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "5": {
+        "code": "C-1f",
+        "service": "Interlock: avoiding simultaneous heating and cooling in the same room",
+        "functionality_levels": {
+            "level_0": "No interlock",
+            "level_1": "Partial interlock (minimising risk of simultanieus heating and cooling e.g. by sliding setpoints)",
+            "level_2": "Total interlock (control system ensures no  simultaneous heating and cooling can take place)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 2,
+                "level_2": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0
+            }
+        }
+    },
+    "6": {
+        "code": "C-1g",
+        "service": "Control of Thermal Energy Storage (TES) operation",
+        "functionality_levels": {
+            "level_0": "Continuous storage operation",
+            "level_1": "Time-scheduled storage operation",
+            "level_2": "Load prediction based storage operation",
+            "level_3": "Cold storage capable of flexible control through grid signals (e.g. DSM)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "7": {
+        "code": "C-2a",
+        "service": "Generator control for cooling",
+        "functionality_levels": {
+            "level_0": "On/Off-control of cooling production",
+            "level_1": "Multi-stage control of  cooling production capacity depending on the load or demand (e.g. on/off of several compressors)",
+            "level_2": "Variable control of  cooling production capacity depending on the load or demand (e.g. hot gas bypass, inverter frequency control)",
+            "level_3": "Variable control of  cooling production capacity depending on the load AND external signals from grid"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "8": {
+        "code": "C-2b",
+        "service": "Sequencing of different cooling generators",
+        "functionality_levels": {
+            "level_1": "Fixed sequencing based on loads only: e.g. depending on the generators characteristics such as absorption chiller vs. centrifugal chiller",
+            "level_2": "Dynamic priorities based on generator efficiency and characteristics (e.g. availability of free cooling)",
+            "level_3": "Load prediction based sequencing: the sequence is based on e.g. COP and available power of a device and the predicted required power",
+            "level_4": "Sequencing based on dynamic priority list, including external signals from grid"
+        },
+        "impact_scores": {}
+    },
+    "9": {
+        "code": "C-3",
+        "service": "Report information regarding cooling system performance",
+        "functionality_levels": {
+            "level_1": "Central or remote reporting of current performance KPIs (e.g. temperatures, submetering energy usage)",
+            "level_2": "Central or remote reporting of current performance KPIs and historical data",
+            "level_3": "Central or remote reporting of performance evaluation including forecasting and/or benchmarking",
+            "level_4": "Central or remote reporting of performance evaluation including forecasting and/or benchmarking; also including predictive management and fault detection"
+        },
+        "impact_scores": {}
+    },
+    "10": {
+        "code": "C-4",
+        "service": "Flexibility and grid interaction",
+        "functionality_levels": {
+            "level_0": "No automatic control",
+            "level_1": "Scheduled operation of cooling system",
+            "level_2": "Self-learning optimal control of cooling system",
+            "level_3": "Cooling system capable of flexible control through grid signals (e.g. DSM)",
+            "level_4": "Optimized control of  cooling system based on local predictions and grid signals (e.g. through model predictive control)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 2
+            },
+            "Energy flexibility and storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "Health, well-being and accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "Maintenance and fault prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "Information to occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    }
+}

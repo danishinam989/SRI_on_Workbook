@@ -1,0 +1,47 @@
+{
+  "building": {
+    "type": "non-residential",
+    "usage": "Offices",
+    "location": "Ireland",
+    "state": "Original",
+    "weightings": "Default",
+    "method": "B",
+    "domains_present": {
+      "Heating": 1,
+      "Domestic hot water": 1,
+      "Cooling": 1,
+      "Ventilation": 1,
+      "Lighting": 1,
+      "Dynamic building envelope": 0,
+      "Electricity": 1,
+      "Electric vehicle charging": 1,
+      "Monitoring and control": 1
+    }
+  },
+  "domains": {
+    "Heating": {
+      "H-1a": 2, "H-1b": 1, "H-1c": 1, "H-1d": 2, "H-1f": 0,
+      "H-2a": 1, "H-2b": 1, "H-2d": 0, "H-3": 2, "H-4": 1
+    },
+    "Domestic hot water": {
+      "DHW-1a": 1, "DHW-1b": 1, "DHW-1d": 1, "DHW-2b": 0, "DHW-3": 1
+    },
+    "Cooling": {
+      "C-1a": 2, "C-1b": 1, "C-1c": 1, "C-1d": 1, "C-1f": 0,
+      "C-1g": 1, "C-2a": 1, "C-2b": 1, "C-3": 1, "C-4": 1
+    },
+    "Ventilation": {
+      "V-1a": 2, "V-1c": 1, "V-2c": 1, "V-2d": 1, "V-3": 2, "V-6": 1
+    },
+    "Lighting": {
+      "L-1a": 2, "L-2": 3
+    },
+    "Electricity": {
+      "E-2": 1, "E-3": 1, "E-4": 0, "E-5": 1, "E-8": 1, "E-11": 1, "E-12": 1
+    },
+    "Monitoring and control": {
+      "MC-3": 2, "MC-4": 1, "MC-9": 1, "MC-13": 2,
+      "MC-25": 1, "MC-28": 1, "MC-29": 0, "MC-30": 1
+    }
+  }
+}

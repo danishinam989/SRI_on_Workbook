@@ -1,0 +1,67 @@
+{
+    "1": {
+        "code": "L-1a",
+        "service": "Occupancy control for indoor lighting",
+        "functionality_levels": {
+            "level_0": "Manual on/off switch",
+            "level_1": "Manual on/off switch + additional sweeping extinction signal",
+            "level_2": "Automatic detection (auto on / dimmed or auto off)",
+            "level_3": "Automatic detection (manual on / dimmed or auto off)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "2": {
+        "code": "L-2",
+        "service": "Control artificial lighting power based on daylight levels",
+        "functionality_levels": {
+            "level_1": "Manual (per room / zone)",
+            "level_2": "Automatic switching",
+            "level_3": "Automatic dimming",
+            "level_4": "Automatic dimming including scene-based light control (during time intervals, dynamic and adapted lighting scenes are set, for example, in terms of illuminance level, different correlated colour temperature (CCT) and the possibility to change the light distribution within the space according to e. g. design, human needs, visual tasks)"
+        },
+        "impact_scores": {}
+    }
+}

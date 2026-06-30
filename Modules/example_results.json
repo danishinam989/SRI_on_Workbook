@@ -1,0 +1,24 @@
+{
+  "sri": 36.57,
+  "sri_class": "Between 35% and 50%",
+  "impacts": {
+    "energy_efficiency": 46.67,
+    "energy_flexibility_and_storage": 16.27,
+    "comfort": 65.64,
+    "convenience": 45.16,
+    "health,_wellbeing_and_accessibility": 61.11,
+    "maintenance_and_fault_prediction": 34.2,
+    "information_to_occupants": 40.12
+  },
+  "domains": {
+    "Heating": 32.12,
+    "Domestic hot water": 32.16,
+    "Cooling": 28.22,
+    "Ventilation": 53.84,
+    "Lighting": 78.67,
+    "Dynamic building envelope": 0.0,
+    "Electricity": 37.66,
+    "Electric vehicle charging": -33.33,
+    "Monitoring and control": 51.28
+  }
+}

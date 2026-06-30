@@ -1,0 +1,244 @@
+{
+    "1": {
+        "code": "DHW-1a",
+        "service": "Control of DHW storage charging (with direct electric heating or integrated electric heat pump)",
+        "functionality_levels": {
+            "level_0": "Automatic control on / off",
+            "level_1": "Automatic control on / off and scheduled charging enable",
+            "level_2": "Automatic control on / off and scheduled charging enable and multi- sensor storage management",
+            "level_3": "Automatic charging control based on local availability of renewables or information from electricity grid (DR, DSM)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "2": {
+        "code": "DHW-1b",
+        "service": "Control of DHW storage charging (using hot water generation)",
+        "functionality_levels": {
+            "level_1": "Automatic control on / off and scheduled charging enable",
+            "level_2": "Automatic on/off control, scheduled charging enable and demand-based supply temperature control or multi-sensor storage management",
+            "level_3": "DHW production system capable of automatic charging control based on external signals (e.g. from district heating grid)"
+        },
+        "impact_scores": {}
+    },
+    "3": {
+        "code": "DHW-1d",
+        "service": "Control of DHW storage charging (with solar collector and supplymentary heat generation)",
+        "functionality_levels": {
+            "level_0": "Manual selected control of solar energy or heat generation",
+            "level_1": "Automatic control of solar storage charge (Prio. 1) and supplementary storage charge",
+            "level_2": "Automatic control of solar storage charge (Prio. 1) and supplementary storage charge and demand-oriented supply or multi-sensor storage management",
+            "level_3": "Automatic control of solar storage charge (Prio. 1) and supplementary storage charge, demand-oriented supply and return temperature control and multi-sensor storage management"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 2
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0
+            }
+        }
+    },
+    "4": {
+        "code": "DHW-2b",
+        "service": "Sequencing in case of different DHW generators",
+        "functionality_levels": {
+            "level_0": "Priorities only based on running time",
+            "level_1": "Control according to fixed priority list: e.g. based on rated energy efficiency",
+            "level_2": "Control according to dynamic priority list (based on current energy efficiency, carbon emissions and capacity of generators, e.g. solar, geothermal heat, cogeneration plant, fossil fuels)",
+            "level_3": "Control according to dynamic priority list (based on current AND predicted load, energy efficiency, carbon emissions  and capacity of generators)",
+            "level_4": "Control according to dynamic priority list (based on current AND predicted load, energy efficiency, carbon emissions, capacity of generators AND external signals from grid)"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 1,
+                "level_3": 2,
+                "level_4": 3
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            }
+        }
+    },
+    "5": {
+        "code": "DHW-3",
+        "service": "Report information regarding domestic hot water performance",
+        "functionality_levels": {
+            "level_0": "Level 0",
+            "level_1": "Indication of actual values (e.g. temperatures, submetering energy usage)",
+            "level_2": "Actual values and historical data",
+            "level_3": "Performance evaluation including forecasting and/or benchmarking",
+            "level_4": "Performance evaluation including forecasting and/or benchmarking; also including predictive management and fault detection"
+        },
+        "impact_scores": {
+            "energy_efficiency": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 1
+            },
+            "energy_flexibility_and_storage": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "comfort": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "convenience": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 1
+            },
+            "health,_wellbeing_and_accessibility": {
+                "level_0": 0,
+                "level_1": 0,
+                "level_2": 0,
+                "level_3": 0,
+                "level_4": 0
+            },
+            "maintenance_and_fault_prediction": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 1,
+                "level_3": 1,
+                "level_4": 2
+            },
+            "information_to_occupants": {
+                "level_0": 0,
+                "level_1": 1,
+                "level_2": 2,
+                "level_3": 3,
+                "level_4": 3
+            }
+        }
+    }
+}
