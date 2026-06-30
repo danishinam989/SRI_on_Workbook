@@ -854,16 +854,19 @@ def _render_results(container, result: dict) -> None:
 
 
 def register(engine, store, options) -> None:
-    grouped = catalog.group_by_domain(engine.service_codes)
-    max_levels = engine.max_levels
-
     # NOTE: engine.assess() is called synchronously (NOT via run.io_bound). Excel
     # COM objects are thread-affine; the engine's Excel instance is created in
     # app.on_startup on the event-loop thread, so engine calls must happen on that
     # same thread. A single recalc is fast enough that brief UI blocking is fine.
+    #
+    # IMPORTANT: do NOT read engine.service_codes / engine.max_levels here at
+    # register time — that would start Excel when app.py is merely imported.
+    # Read them inside the page function (render time, after on_startup started Excel).
     @ui.page("/")
     def assessment_page(project: str | None = None):
         state: dict = {}
+        grouped = catalog.group_by_domain(engine.service_codes)
+        max_levels = engine.max_levels
         ui.label("SRI Assessment").classes("text-3xl font-bold")
 
         with ui.row().classes("w-full gap-8"):
