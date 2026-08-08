@@ -1,0 +1,470 @@
+{
+  "Building": {
+    "Name": "Ballymun Library - Copy",
+    "AssessorName": "Danish Inam",
+    "Organisation": "Dublin City Council",
+    "Email": "danishinam28@gmail.com",
+    "Date": "2025-08-06",
+    "TelephoneNumber": "0899886964",
+    "Residential": false,
+    "BuildingUsage": "NonResidentialEducational",
+    "Location": "Ireland",
+    "NetFloorAreaOfTheBuilding": 846.0,
+    "YearOfConstruction": "Between1960And1990",
+    "BuildingState": "Original",
+    "BriefDescription": "Ballymun Library opened to the public in 1976. The public areas include the adult library, the junior library, lecture\r\nroom and public toilet. The staff areas include an office, a workroom, a kitchen and ladies and gents staff toilets.\r\nThe library also has a plant room that houses the heating system. The garage space is due to be converted to\r\nDublin City Libraries storage later this year. The building has a C1 BER Rating.",
+    "Address": "D11 DCR7",
+    "DefaultWeightings": true,
+    "Domains": [
+      {
+        "Name": "Heating",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "DomesticHotWater",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "Ventilation",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "Lighting",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "DynamicBuildingEnvelope",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "Electricity",
+        "AbsentButMandatory": false
+      },
+      {
+        "Name": "ElectricVehicleCharging",
+        "AbsentButMandatory": true
+      },
+      {
+        "Name": "MonitoringAndControl",
+        "AbsentButMandatory": false
+      }
+    ]
+  },
+  "DataSource": "Standard",
+  "DomainWeightings": null,
+  "ImpactWeightings": null,
+  "MethodAServices": null,
+  "MethodBServices": [
+    {
+      "Name": "DE1",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DE2",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DE4",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DHW1a",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DHW1b",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DHW1d",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DHW2b",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "DHW3",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E11",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E12",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E2",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E3",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E4",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E5",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "E8",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H1a",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H1b",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H1c",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H1d",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H1f",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H2a",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H2b",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H2d",
+      "Triage": false,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": -1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H3",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 2,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "H4",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "L1a",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "L2",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC13",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC25",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC28",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC29",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC3",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC30",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC4",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "MC9",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V1a",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V1c",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V2c",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V2d",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 1,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V3",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    },
+    {
+      "Name": "V6",
+      "Triage": true,
+      "FunctionalityLevels": [
+        {
+          "FunctionalityLevel": 0,
+          "Percentage": 100.0
+        }
+      ]
+    }
+  ],
+  "FileMappings": null
+}

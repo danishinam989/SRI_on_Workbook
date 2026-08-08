@@ -1,0 +1,1497 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "currency": "EUR",
+    "region": "Ireland",
+    "reference_floor_area_m2": 1500,
+    "reference_building": "Non-residential, built ~1990, Ireland (matches SRI/sri_moo_optimizer.py's create_example_building() profile)",
+    "pricing_basis": "cumulative_from_baseline",
+    "status": "PLACEHOLDER",
+    "quote_date": null,
+    "rfq_reference": null,
+    "generated_from": [
+      "SRI/sri_moo_optimizer.py:DOMAIN_COST_PER_LEVEL",
+      "SRI/sri_moo_pygmo.py:DEFAULT_UPGRADE_COSTS",
+      "Blockchained-APIs/weights/pricing_weights.json"
+    ],
+    "notes": "flat_eur/eur_per_m2 are PLACEHOLDER values derived from legacy tables for structural completeness only. Not sourced from real Irish supplier quotes."
+  },
+  "services": {
+    "H-1a": {
+      "domain": "Heating",
+      "name": "Heat emission control",
+      "max_level": 4,
+      "legacy_numeric_key": "1",
+      "levels": {
+        "1": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 4500,
+          "eur_per_m2": 3.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-1b": {
+      "domain": "Heating",
+      "name": "Emission control for TABS (heating mode)",
+      "max_level": 3,
+      "legacy_numeric_key": "2",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 7000,
+          "eur_per_m2": 4.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-1c": {
+      "domain": "Heating",
+      "name": "Control of distribution fluid temperature (supply or return air flow or water flow) - Similar function can be applied to the control of direct electric heating networks",
+      "max_level": 2,
+      "legacy_numeric_key": "3",
+      "levels": {
+        "1": {
+          "flat_eur": 2500,
+          "eur_per_m2": 1.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 6000,
+          "eur_per_m2": 4.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-1d": {
+      "domain": "Heating",
+      "name": "Control of distribution pumps in networks",
+      "max_level": 4,
+      "legacy_numeric_key": "4",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 9000,
+          "eur_per_m2": 6.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-1f": {
+      "domain": "Heating",
+      "name": "Thermal Energy Storage (TES) for building heating (excluding TABS)",
+      "max_level": 3,
+      "legacy_numeric_key": "5",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 30000,
+          "eur_per_m2": 20.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 60000,
+          "eur_per_m2": 40.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-2a": {
+      "domain": "Heating",
+      "name": "Heat generator control (all except heat pumps)",
+      "max_level": 2,
+      "legacy_numeric_key": "6",
+      "levels": {
+        "1": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-2b": {
+      "domain": "Heating",
+      "name": "Heat generator control (for heat pumps)",
+      "max_level": 3,
+      "legacy_numeric_key": "7",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-2d": {
+      "domain": "Heating",
+      "name": "Sequencing in case of different heat generators",
+      "max_level": 4,
+      "legacy_numeric_key": "8",
+      "levels": {
+        "1": {
+          "flat_eur": 7000,
+          "eur_per_m2": 4.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 40000,
+          "eur_per_m2": 26.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-3": {
+      "domain": "Heating",
+      "name": "Report information regarding heating system performance",
+      "max_level": 4,
+      "legacy_numeric_key": "9",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "H-4": {
+      "domain": "Heating",
+      "name": "Flexibility and grid interaction",
+      "max_level": 4,
+      "legacy_numeric_key": "10",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 35000,
+          "eur_per_m2": 23.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DHW-1a": {
+      "domain": "Domestic hot water",
+      "name": "Control of DHW storage charging (with direct electric heating or integrated electric heat pump)",
+      "max_level": 3,
+      "legacy_numeric_key": "21",
+      "levels": {
+        "1": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DHW-1b": {
+      "domain": "Domestic hot water",
+      "name": "Control of DHW storage charging (using hot water generation)",
+      "max_level": 3,
+      "legacy_numeric_key": "22",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DHW-1d": {
+      "domain": "Domestic hot water",
+      "name": "Control of DHW storage charging (with solar collector and supplymentary heat generation)",
+      "max_level": 3,
+      "legacy_numeric_key": "23",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 7000,
+          "eur_per_m2": 4.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DHW-2b": {
+      "domain": "Domestic hot water",
+      "name": "Sequencing in case of different DHW generators",
+      "max_level": 4,
+      "legacy_numeric_key": "24",
+      "levels": {
+        "1": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 18000,
+          "eur_per_m2": 12.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 30000,
+          "eur_per_m2": 20.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DHW-3": {
+      "domain": "Domestic hot water",
+      "name": "Report information regarding domestic hot water performance",
+      "max_level": 4,
+      "legacy_numeric_key": "25",
+      "levels": {
+        "1": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1a": {
+      "domain": "Cooling",
+      "name": "Cooling emission control",
+      "max_level": 4,
+      "legacy_numeric_key": "11",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 9000,
+          "eur_per_m2": 6.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1b": {
+      "domain": "Cooling",
+      "name": "Emission control for TABS (cooling mode)",
+      "max_level": 3,
+      "legacy_numeric_key": "12",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 7000,
+          "eur_per_m2": 4.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1c": {
+      "domain": "Cooling",
+      "name": "Control of distribution network chilled water temperature (supply or return)",
+      "max_level": 2,
+      "legacy_numeric_key": "13",
+      "levels": {
+        "1": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1d": {
+      "domain": "Cooling",
+      "name": "Control of distribution pumps in networks",
+      "max_level": 4,
+      "legacy_numeric_key": "14",
+      "levels": {
+        "1": {
+          "flat_eur": 2500,
+          "eur_per_m2": 1.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 6000,
+          "eur_per_m2": 4.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1f": {
+      "domain": "Cooling",
+      "name": "Interlock: avoiding simultaneous heating and cooling in the same room",
+      "max_level": 2,
+      "legacy_numeric_key": "15",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 6000,
+          "eur_per_m2": 4.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-1g": {
+      "domain": "Cooling",
+      "name": "Control of Thermal Energy Storage (TES) operation",
+      "max_level": 3,
+      "legacy_numeric_key": "16",
+      "levels": {
+        "1": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 40000,
+          "eur_per_m2": 26.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-2a": {
+      "domain": "Cooling",
+      "name": "Generator control for cooling",
+      "max_level": 3,
+      "legacy_numeric_key": "17",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-2b": {
+      "domain": "Cooling",
+      "name": "Sequencing of different cooling generators",
+      "max_level": 4,
+      "legacy_numeric_key": "18",
+      "levels": {
+        "1": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 18000,
+          "eur_per_m2": 12.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 30000,
+          "eur_per_m2": 20.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-3": {
+      "domain": "Cooling",
+      "name": "Report information regarding cooling system performance",
+      "max_level": 4,
+      "legacy_numeric_key": "19",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "C-4": {
+      "domain": "Cooling",
+      "name": "Flexibility and grid interaction",
+      "max_level": 4,
+      "legacy_numeric_key": "20",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 35000,
+          "eur_per_m2": 23.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-1a": {
+      "domain": "Ventilation",
+      "name": "Supply air flow control at the room level",
+      "max_level": 4,
+      "legacy_numeric_key": "31",
+      "levels": {
+        "1": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 14000,
+          "eur_per_m2": 9.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-1c": {
+      "domain": "Ventilation",
+      "name": "Air flow or pressure control at the air handler level",
+      "max_level": 4,
+      "legacy_numeric_key": "32",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-2c": {
+      "domain": "Ventilation",
+      "name": "Heat recovery control:\r\nprevention of overheating",
+      "max_level": 2,
+      "legacy_numeric_key": "33",
+      "levels": {
+        "1": {
+          "flat_eur": 1000,
+          "eur_per_m2": 0.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-2d": {
+      "domain": "Ventilation",
+      "name": "Supply air temperature control at the air handling unit level",
+      "max_level": 3,
+      "legacy_numeric_key": "34",
+      "levels": {
+        "1": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 4000,
+          "eur_per_m2": 2.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-3": {
+      "domain": "Ventilation",
+      "name": "Free cooling with mechanical ventilation system",
+      "max_level": 3,
+      "legacy_numeric_key": "35",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "V-6": {
+      "domain": "Ventilation",
+      "name": "Reporting information regarding IAQ",
+      "max_level": 3,
+      "legacy_numeric_key": "36",
+      "levels": {
+        "1": {
+          "flat_eur": 500,
+          "eur_per_m2": 0.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "L-1a": {
+      "domain": "Lighting",
+      "name": "Occupancy control for indoor lighting",
+      "max_level": 3,
+      "legacy_numeric_key": "26",
+      "levels": {
+        "1": {
+          "flat_eur": 200,
+          "eur_per_m2": 0.133,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 500,
+          "eur_per_m2": 0.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 800,
+          "eur_per_m2": 0.533,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "L-2": {
+      "domain": "Lighting",
+      "name": "Control artificial lighting power based on daylight levels",
+      "max_level": 4,
+      "legacy_numeric_key": "27",
+      "levels": {
+        "1": {
+          "flat_eur": 300,
+          "eur_per_m2": 0.2,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 800,
+          "eur_per_m2": 0.533,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 1500,
+          "eur_per_m2": 1.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DE-1": {
+      "domain": "Dynamic building envelope",
+      "name": "Window solar shading control",
+      "max_level": 4,
+      "legacy_numeric_key": "37",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DE-2": {
+      "domain": "Dynamic building envelope",
+      "name": "Window open/closed control, combined with HVAC system",
+      "max_level": 3,
+      "legacy_numeric_key": "38",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "DE-4": {
+      "domain": "Dynamic building envelope",
+      "name": "Reporting information regarding performance of dynamic building envelope systems",
+      "max_level": 4,
+      "legacy_numeric_key": "39",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 6000,
+          "eur_per_m2": 4.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-2": {
+      "domain": "Electricity",
+      "name": "Reporting information regarding local electricity generation",
+      "max_level": 4,
+      "legacy_numeric_key": "43",
+      "levels": {
+        "1": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 55000,
+          "eur_per_m2": 36.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 80000,
+          "eur_per_m2": 53.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-3": {
+      "domain": "Electricity",
+      "name": "Storage of (locally generated) electricity",
+      "max_level": 4,
+      "legacy_numeric_key": "44",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 30000,
+          "eur_per_m2": 20.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 60000,
+          "eur_per_m2": 40.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 95000,
+          "eur_per_m2": 63.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-4": {
+      "domain": "Electricity",
+      "name": "Optimizing self-consumption of locally generated electricity",
+      "max_level": 3,
+      "legacy_numeric_key": "45",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-5": {
+      "domain": "Electricity",
+      "name": "Control of combined heat and power plant (CHP)",
+      "max_level": 2,
+      "legacy_numeric_key": "46",
+      "levels": {
+        "1": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 35000,
+          "eur_per_m2": 23.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-8": {
+      "domain": "Electricity",
+      "name": "Support of (micro)grid operation modes",
+      "max_level": 3,
+      "legacy_numeric_key": "47",
+      "levels": {
+        "1": {
+          "flat_eur": 20000,
+          "eur_per_m2": 13.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 50000,
+          "eur_per_m2": 33.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 80000,
+          "eur_per_m2": 53.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-11": {
+      "domain": "Electricity",
+      "name": "Reporting information regarding energy storage",
+      "max_level": 4,
+      "legacy_numeric_key": "48",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 50000,
+          "eur_per_m2": 33.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 70000,
+          "eur_per_m2": 46.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "E-12": {
+      "domain": "Electricity",
+      "name": "Reporting information regarding electricity consumption",
+      "max_level": 4,
+      "legacy_numeric_key": "49",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 40000,
+          "eur_per_m2": 26.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "EV-15": {
+      "domain": "Electric vehicle charging",
+      "name": "EV Charging Capacity",
+      "max_level": 4,
+      "legacy_numeric_key": "40",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 30000,
+          "eur_per_m2": 20.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 50000,
+          "eur_per_m2": 33.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "EV-16": {
+      "domain": "Electric vehicle charging",
+      "name": "EV Charging Grid balancing",
+      "max_level": 2,
+      "legacy_numeric_key": "41",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "EV-17": {
+      "domain": "Electric vehicle charging",
+      "name": "EV charging information and connectivity",
+      "max_level": 2,
+      "legacy_numeric_key": "42",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-3": {
+      "domain": "Monitoring and control",
+      "name": "Run time management of HVAC systems",
+      "max_level": 3,
+      "legacy_numeric_key": "50",
+      "levels": {
+        "1": {
+          "flat_eur": 3000,
+          "eur_per_m2": 2.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 8000,
+          "eur_per_m2": 5.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 15000,
+          "eur_per_m2": 10.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-4": {
+      "domain": "Monitoring and control",
+      "name": "Detecting faults of technical building systems and providing support to the diagnosis of these faults",
+      "max_level": 3,
+      "legacy_numeric_key": "51",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 55000,
+          "eur_per_m2": 36.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-9": {
+      "domain": "Monitoring and control",
+      "name": "Occupancy detection: connected services",
+      "max_level": 2,
+      "legacy_numeric_key": "52",
+      "levels": {
+        "1": {
+          "flat_eur": 2000,
+          "eur_per_m2": 1.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-13": {
+      "domain": "Monitoring and control",
+      "name": "Central reporting of TBS performance and energy use",
+      "max_level": 3,
+      "legacy_numeric_key": "53",
+      "levels": {
+        "1": {
+          "flat_eur": 5000,
+          "eur_per_m2": 3.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 12000,
+          "eur_per_m2": 8.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-25": {
+      "domain": "Monitoring and control",
+      "name": "Smart Grid Integration",
+      "max_level": 2,
+      "legacy_numeric_key": "54",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-28": {
+      "domain": "Monitoring and control",
+      "name": "Reporting information regarding demand side management performance and operation",
+      "max_level": 2,
+      "legacy_numeric_key": "55",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-29": {
+      "domain": "Monitoring and control",
+      "name": "Override of DSM control",
+      "max_level": 4,
+      "legacy_numeric_key": "56",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 50000,
+          "eur_per_m2": 33.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "4": {
+          "flat_eur": 150000,
+          "eur_per_m2": 100.0,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    },
+    "MC-30": {
+      "domain": "Monitoring and control",
+      "name": "Single platform that allows automated control & coordination between TBS + optimization of energy flow based on occupancy, weather and grid signals",
+      "max_level": 3,
+      "legacy_numeric_key": "57",
+      "levels": {
+        "1": {
+          "flat_eur": 10000,
+          "eur_per_m2": 6.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "2": {
+          "flat_eur": 25000,
+          "eur_per_m2": 16.667,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        },
+        "3": {
+          "flat_eur": 50000,
+          "eur_per_m2": 33.333,
+          "status": "PLACEHOLDER",
+          "derived_from": "pricing_weights.json"
+        }
+      }
+    }
+  }
+}

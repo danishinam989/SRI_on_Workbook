@@ -105,10 +105,15 @@ import numpy as np
 
 try:
     import pygmo as pg
-except ImportError:
-    raise ImportError(
-        "pygmo is required. Install via: conda install -c conda-forge pygmo"
-    )
+    PYGMO_AVAILABLE = True
+except ImportError:                                          # pragma: no cover
+    # pygmo has no wheels for Python 3.13. Import is optional so that the
+    # engine-agnostic pieces of this module (cost catalogue, ISO 52120
+    # estimator, ParetoSolution, ...) can be reused by sri_moo_excel.py and
+    # sri_moo_runner_pymoo.py without pygmo installed. run_optimisation()
+    # raises if actually called.
+    pg = None
+    PYGMO_AVAILABLE = False
 
 
 # =============================================================================
@@ -176,6 +181,17 @@ class BuildingProfile:
     co2_emission_factor: float = 0.233   # kgCO2/kWh (Ireland 2024 grid average)
     solar_potential_kwp: float = 0.0
     geothermal_potential: bool = False
+
+    # --- ISO 52120-1 energy estimation (see Docs/ISO_52120_BAC_FACTORS.md) ---
+    # Building type per ISO 52120 Annex A. Non-residential: "Offices",
+    # "Lecture hall", "Education buildings (schools)", "Hospital", "Hotels",
+    # "Restaurants", "Wholesale and retail trade service buildings",
+    # "Other types" (sport facilities/storage/industrial -> NO D/B/A factors!).
+    # Residential: "Residential".
+    iso_building_type: str = "Offices"
+    # Measured annual energy split by end-use. If None, it is derived from
+    # annual_energy_kwh with DEFAULT_END_USE_SHARE — an ASSUMPTION, not data.
+    energy_breakdown: Optional["EnergyBreakdown"] = None
 
     # Financial constraint
     budget_eur: float = 50_000.0
@@ -470,40 +486,67 @@ class SRIScoringEngine:
 # 3. COST & CO₂ ESTIMATION MODELS
 # =============================================================================
 
+def load_pricing_catalogue(path: str) -> tuple[dict[str, dict[int, tuple[float, float]]], float]:
+    """
+    Load the canonical pricing catalogue (weights/pricing_catalogue.json).
+
+    Returns ({service_code: {level: (cumulative_flat_eur, cumulative_eur_per_m2)}},
+    reference_floor_area_m2). Figures are cumulative-from-baseline (level 0
+    implicit at (0, 0)); levels still marked "TBD" (flat_eur is null) are
+    omitted so callers fall through to the zero default.
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    reference_area = data["_meta"]["reference_floor_area_m2"]
+    catalogue: dict[str, dict[int, tuple[float, float]]] = {}
+    for code, svc in data["services"].items():
+        levels: dict[int, tuple[float, float]] = {}
+        for level_str, entry in svc["levels"].items():
+            if entry["flat_eur"] is not None:
+                levels[int(level_str)] = (entry["flat_eur"], entry["eur_per_m2"] or 0.0)
+        catalogue[code] = levels
+
+    return catalogue, reference_area
+
+
 class UpgradeCostEstimator:
     """
     Estimates the capital expenditure for upgrading services from one
-    functionality level to another.
+    functionality level to another, using the canonical pricing catalogue
+    (weights/pricing_catalogue.json — see load_pricing_catalogue()).
 
-    In production, this would be backed by a detailed cost database
-    (per-service, per-level, per-country pricing from market research).
-    Here we provide a structured placeholder with realistic cost ranges
-    that should be replaced with actual market data.
+    Pricing is cumulative-from-baseline per service+level, quoted at a
+    reference floor area, with a marginal €/m² rate for other building
+    sizes: cost_at(level) = flat_eur[level] + eur_per_m2[level] * (floor_area
+    - reference_floor_area_m2), clamped at 0. Upgrade cost is the difference
+    between the cumulative cost at to_level and at from_level.
     """
-
-    # Indicative cost ranges per domain (EUR per service per level increment)
-    # These are placeholder values — replace with your EU market research data
-    DOMAIN_COST_PER_LEVEL = {
-        "Heating":      {"base": 2000, "per_level": 3500},
-        "DHW":          {"base": 1500, "per_level": 2500},
-        "Cooling":      {"base": 2500, "per_level": 4000},
-        "Ventilation":  {"base": 1800, "per_level": 3000},
-        "Lighting":     {"base":  800, "per_level": 1500},
-        "DE":           {"base": 3000, "per_level": 5000},
-        "Electricity":  {"base": 2000, "per_level": 3500},
-        "EV_Charging":  {"base": 2500, "per_level": 4500},
-        "MC":           {"base": 1000, "per_level": 2000},
-    }
 
     def __init__(
         self,
         catalogue: list[ServiceDefinition],
         floor_area_m2: float,
+        pricing_catalogue: dict[str, dict[int, tuple[float, float]]],
+        reference_floor_area_m2: float,
         custom_costs: Optional[dict] = None,
     ):
         self.service_lookup = {svc.code: svc for svc in catalogue}
         self.floor_area_m2 = floor_area_m2
+        self.pricing_catalogue = pricing_catalogue
+        self.reference_floor_area_m2 = reference_floor_area_m2
         self.custom_costs = custom_costs or {}
+
+    def _cumulative_cost(self, service_code: str, level: int) -> float:
+        """Cumulative cost (from baseline) to reach `level`, area-adjusted."""
+        if level <= 0:
+            return 0.0
+        entry = self.pricing_catalogue.get(service_code, {}).get(level)
+        if entry is None:
+            return 0.0
+        flat_eur, eur_per_m2 = entry
+        area_delta = self.floor_area_m2 - self.reference_floor_area_m2
+        return max(0.0, flat_eur + eur_per_m2 * area_delta)
 
     def estimate_upgrade_cost(
         self,
@@ -511,17 +554,12 @@ class UpgradeCostEstimator:
         from_level: int,
         to_level: int,
     ) -> float:
-        """
-        Estimate the cost to upgrade a single service.
-
-        The cost model applies a non-linear scaling: higher levels cost
-        progressively more (reflecting real-world diminishing returns and
-        increased technology sophistication).
-        """
+        """Estimate the cost to upgrade a single service from from_level to to_level."""
         if to_level <= from_level:
             return 0.0
 
-        # Check for custom per-service cost overrides
+        # Check for custom per-service cost overrides (separate override
+        # format, not yet aligned to the canonical cumulative schema above)
         if service_code in self.custom_costs:
             custom = self.custom_costs[service_code]
             return sum(
@@ -529,22 +567,10 @@ class UpgradeCostEstimator:
                 for l in range(from_level + 1, to_level + 1)
             )
 
-        svc = self.service_lookup.get(service_code)
-        if svc is None:
-            return 0.0
-
-        domain_costs = self.DOMAIN_COST_PER_LEVEL.get(svc.domain, {"base": 1000, "per_level": 2000})
-
-        total = 0.0
-        for level in range(from_level + 1, to_level + 1):
-            # Non-linear cost scaling: cost increases with level
-            # level_factor: 1.0 for level 1, 1.3 for level 2, 1.7 for level 3, 2.2 for level 4
-            level_factor = 1.0 + 0.3 * (level - 1)
-            # Area scaling: costs scale sub-linearly with floor area
-            area_factor = (self.floor_area_m2 / 200.0) ** 0.4  # Normalised to 200m²
-            total += domain_costs["per_level"] * level_factor * area_factor
-
-        return total
+        return max(0.0,
+            self._cumulative_cost(service_code, to_level)
+            - self._cumulative_cost(service_code, from_level)
+        )
 
     def total_cost(
         self,
@@ -559,8 +585,327 @@ class UpgradeCostEstimator:
         return total
 
 
+# -----------------------------------------------------------------------------
+# ISO 52120-1:2021 BAC efficiency factors (Annex A, Tables A.1-A.9)
+# See Docs/ISO_52120_BAC_FACTORS.md for the extracted tables, the equations
+# (Clause 7.3.3, Eq. 4-10) and the caveats.
+#
+# Class C ("Standard") is the reference and is 1.0 by definition.
+# `None` = the standard provides no factor for that combination.
+# -----------------------------------------------------------------------------
+
+ISO52120_CLASSES = ("D", "C", "B", "A")
+
+# {usage_type: {iso_building_type: {factor_kind: {class: factor|None}}}}
+#   factor kinds: "H" (thermal heating), "C" (thermal cooling), "DHW",
+#                 "el_L" (lighting), "el_aux" (auxiliary),
+#                 "th"/"el" (overall, used as fallback)
+ISO52120_FACTORS: dict[str, dict[str, dict[str, dict[str, Optional[float]]]]] = {
+    "non_residential": {
+        "Offices": {
+            "H":      {"D": 1.44, "C": 1.0, "B": 0.79, "A": 0.70},
+            "C":      {"D": 1.57, "C": 1.0, "B": 0.80, "A": 0.57},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 0.85, "A": 0.72},
+            "el_aux": {"D": 1.15, "C": 1.0, "B": 0.86, "A": 0.72},
+            "th":     {"D": 1.51, "C": 1.0, "B": 0.80, "A": 0.70},
+            "el":     {"D": 1.10, "C": 1.0, "B": 0.93, "A": 0.87},
+        },
+        "Lecture hall": {
+            "H":      {"D": 1.22, "C": 1.0, "B": 0.73, "A": 0.30},
+            "C":      {"D": 1.32, "C": 1.0, "B": 0.94, "A": 0.64},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 0.88, "A": 0.76},
+            "el_aux": {"D": 1.11, "C": 1.0, "B": 0.88, "A": 0.78},
+            "th":     {"D": 1.24, "C": 1.0, "B": 0.75, "A": 0.50},
+            "el":     {"D": 1.06, "C": 1.0, "B": 0.94, "A": 0.89},
+        },
+        "Education buildings (schools)": {
+            "H":      {"D": 1.20, "C": 1.0, "B": 0.88, "A": 0.80},
+            "C":      {"D": None, "C": 1.0, "B": None, "A": None},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 0.88, "A": 0.76},
+            "el_aux": {"D": 1.12, "C": 1.0, "B": 0.87, "A": 0.74},
+            "th":     {"D": 1.20, "C": 1.0, "B": 0.88, "A": 0.80},
+            "el":     {"D": 1.07, "C": 1.0, "B": 0.93, "A": 0.86},
+        },
+        "Hospital": {
+            "H":      {"D": 1.31, "C": 1.0, "B": 0.91, "A": 0.86},
+            "C":      {"D": None, "C": 1.0, "B": None, "A": None},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.20, "C": 1.0, "B": 1.00, "A": 1.00},
+            "el_aux": {"D": 1.10, "C": 1.0, "B": 0.98, "A": 0.96},
+            "th":     {"D": 1.31, "C": 1.0, "B": 0.91, "A": 0.86},
+            "el":     {"D": 1.05, "C": 1.0, "B": 0.98, "A": 0.96},
+        },
+        "Hotels": {
+            "H":      {"D": 1.17, "C": 1.0, "B": 0.85, "A": 0.61},
+            "C":      {"D": 1.76, "C": 1.0, "B": 0.79, "A": 0.76},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 0.88, "A": 0.76},
+            "el_aux": {"D": 1.12, "C": 1.0, "B": 0.89, "A": 0.78},
+            "th":     {"D": 1.31, "C": 1.0, "B": 0.85, "A": 0.68},
+            "el":     {"D": 1.07, "C": 1.0, "B": 0.95, "A": 0.90},
+        },
+        "Restaurants": {
+            "H":      {"D": 1.21, "C": 1.0, "B": 0.76, "A": 0.69},
+            "C":      {"D": 1.39, "C": 1.0, "B": 0.94, "A": 0.60},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 1.00, "A": 1.00},
+            "el_aux": {"D": 1.09, "C": 1.0, "B": 0.96, "A": 0.92},
+            "th":     {"D": 1.23, "C": 1.0, "B": 0.77, "A": 0.68},
+            "el":     {"D": 1.04, "C": 1.0, "B": 0.96, "A": 0.92},
+        },
+        "Wholesale and retail trade service buildings": {
+            "H":      {"D": 1.56, "C": 1.0, "B": 0.71, "A": 0.46},
+            "C":      {"D": 1.59, "C": 1.0, "B": 0.85, "A": 0.55},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": 1.10, "C": 1.0, "B": 1.00, "A": 1.00},
+            "el_aux": {"D": 1.13, "C": 1.0, "B": 0.95, "A": 0.91},
+            "th":     {"D": 1.56, "C": 1.0, "B": 0.73, "A": 0.60},
+            "el":     {"D": 1.08, "C": 1.0, "B": 0.95, "A": 0.91},
+        },
+        # Sport facilities / storage / industrial: the standard gives ONLY C = 1.
+        # No D/B/A factors exist -> ISO 52120 cannot quantify a BAC upgrade here.
+        "Other types": {
+            "H":      {"D": None, "C": 1.0, "B": None, "A": None},
+            "C":      {"D": None, "C": 1.0, "B": None, "A": None},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},  # A.7 covers all types
+            "el_L":   {"D": None, "C": 1.0, "B": None, "A": None},
+            "el_aux": {"D": None, "C": 1.0, "B": None, "A": None},
+            "th":     {"D": None, "C": 1.0, "B": None, "A": None},
+            "el":     {"D": None, "C": 1.0, "B": None, "A": None},
+        },
+    },
+    "residential": {
+        # A.2/A.4/A.6/A.8 give one row for all residential types.
+        # Table A.9 (detailed lighting/aux) is non-residential only -> fall back to "el".
+        "Residential": {
+            "H":      {"D": 1.09, "C": 1.0, "B": 0.88, "A": 0.81},
+            "C":      {"D": None, "C": 1.0, "B": None, "A": None},
+            "DHW":    {"D": 1.11, "C": 1.0, "B": 0.90, "A": 0.80},
+            "el_L":   {"D": None, "C": 1.0, "B": None, "A": None},
+            "el_aux": {"D": None, "C": 1.0, "B": None, "A": None},
+            "th":     {"D": 1.10, "C": 1.0, "B": 0.88, "A": 0.81},
+            "el":     {"D": 1.08, "C": 1.0, "B": 0.93, "A": 0.92},
+        },
+    },
+}
+
+
+@dataclass
+class EnergyBreakdown:
+    """
+    Annual energy use split by ISO 52120-1 end-use (kWh/year), as per Table 9.
+
+    Thermal terms are energy *input* to the system (need + system losses);
+    the *_aux terms are the electrical auxiliary energy.
+    """
+    heating_kwh: float = 0.0          # Q_H,nd + Q_H,ls   -> f_BAC,H
+    heating_aux_kwh: float = 0.0      # W_H,aux           -> f_BAC,el(aux)
+    cooling_kwh: float = 0.0          # Q_C,nd + Q_C,ls   -> f_BAC,C
+    cooling_aux_kwh: float = 0.0      # W_C,aux           -> f_BAC,el(aux)
+    dhw_kwh: float = 0.0              # Q_DHW             -> f_BAC,DHW
+    ventilation_aux_kwh: float = 0.0  # W_V,aux           -> f_BAC,el(aux)
+    lighting_kwh: float = 0.0         # W_L               -> f_BAC,el(L)
+
+    def total(self) -> float:
+        return (self.heating_kwh + self.heating_aux_kwh + self.cooling_kwh
+                + self.cooling_aux_kwh + self.dhw_kwh
+                + self.ventilation_aux_kwh + self.lighting_kwh)
+
+    @classmethod
+    def from_total(cls, annual_energy_kwh: float,
+                   shares: Optional[dict[str, float]] = None) -> "EnergyBreakdown":
+        """
+        Split a single annual figure using a default end-use share.
+
+        WARNING: the default split is an ASSUMPTION, not a measurement. Supply a
+        real breakdown (metering / EPC / simulation) for defensible numbers.
+        """
+        shares = shares or DEFAULT_END_USE_SHARE
+        return cls(
+            heating_kwh=annual_energy_kwh * shares.get("heating", 0.0),
+            heating_aux_kwh=annual_energy_kwh * shares.get("heating_aux", 0.0),
+            cooling_kwh=annual_energy_kwh * shares.get("cooling", 0.0),
+            cooling_aux_kwh=annual_energy_kwh * shares.get("cooling_aux", 0.0),
+            dhw_kwh=annual_energy_kwh * shares.get("dhw", 0.0),
+            ventilation_aux_kwh=annual_energy_kwh * shares.get("ventilation_aux", 0.0),
+            lighting_kwh=annual_energy_kwh * shares.get("lighting", 0.0),
+        )
+
+
+# Placeholder end-use split (sums to 1.00) used only when no measured breakdown
+# is supplied. NOT part of ISO 52120 — replace with real data where possible.
+DEFAULT_END_USE_SHARE = {
+    "heating": 0.45, "heating_aux": 0.04,
+    "cooling": 0.08, "cooling_aux": 0.03,
+    "dhw": 0.15, "ventilation_aux": 0.10, "lighting": 0.15,
+}
+
+
+class ISO52120EnergyEstimator:
+    """
+    Quantify energy / CO₂ savings from control (BAC) upgrades using the
+    **ISO 52120-1:2021 BAC efficiency factor method** (Method 2, Clause 7 +
+    Annex A). See Docs/ISO_52120_BAC_FACTORS.md.
+
+    Method
+    ------
+    Class C ("Standard") is the reference (factor = 1). Per Eq. 4-10, energy at a
+    BAC class scales with the class factor. Because the building's *measured*
+    consumption corresponds to its CURRENT class, we rescale current -> proposed:
+
+        E_proposed = E_current × f(proposed) / f(current)
+        savings    = E_current × (1 − f(proposed) / f(current))
+
+    applied per end-use with the matching factor (Table 9).
+
+    Honest limitations (see the MD for detail)
+    -----------------------------------------
+    * The **SRI-score → BAC-class mapping is NOT defined by ISO 52120** (the
+      standard classifies by BAC *function sets*, Clause 5.6 / Annex B). The
+      thresholds here are our documented approximation — tune via `class_thresholds`.
+    * "Other types" (sport facilities, storage, industrial) have **no D/B/A
+      factors** in the standard -> such buildings yield zero quantified saving
+      (recorded in `self.warnings`).
+    * Cooling factors are absent for Education, Hospital and all Residential.
+    * SRI domains with no ISO counterpart (DE, Electricity, EV_Charging, MC)
+      contribute nothing; MC influences the class, not a separate end-use.
+    * The standard calls this a "rough estimation" — screening, not simulation.
+    """
+
+    # SRI domain -> (end-use attribute, factor kind)
+    DOMAIN_TO_END_USE: dict[str, list[tuple[str, str]]] = {
+        "Heating":     [("heating_kwh", "H"), ("heating_aux_kwh", "el_aux")],
+        "Cooling":     [("cooling_kwh", "C"), ("cooling_aux_kwh", "el_aux")],
+        "DHW":         [("dhw_kwh", "DHW")],
+        "Ventilation": [("ventilation_aux_kwh", "el_aux")],
+        "Lighting":    [("lighting_kwh", "el_L")],
+    }
+
+    # SRI domain score (0-100) -> BAC class. Upper bound is exclusive.
+    # NOT from the standard: our documented approximation.
+    DEFAULT_CLASS_THRESHOLDS: tuple[tuple[float, str], ...] = (
+        (25.0, "D"),    # [0, 25)   non energy efficient
+        (50.0, "C"),    # [25, 50)  standard (reference)
+        (80.0, "B"),    # [50, 80)  advanced
+        (float("inf"), "A"),  # [80, ...] high energy performance
+    )
+
+    def __init__(
+        self,
+        breakdown: EnergyBreakdown,
+        co2_factor: float,
+        usage_type: str = "non_residential",
+        iso_building_type: str = "Offices",
+        class_thresholds: Optional[tuple[tuple[float, str], ...]] = None,
+    ):
+        self.breakdown = breakdown
+        self.co2_factor = co2_factor
+        self.usage_type = usage_type
+        self.iso_building_type = iso_building_type
+        self.class_thresholds = class_thresholds or self.DEFAULT_CLASS_THRESHOLDS
+        self.warnings: list[str] = []
+
+        try:
+            self._table = ISO52120_FACTORS[usage_type][iso_building_type]
+        except KeyError as exc:
+            valid = {u: list(t) for u, t in ISO52120_FACTORS.items()}
+            raise KeyError(
+                f"No ISO 52120 factors for usage_type={usage_type!r}, "
+                f"iso_building_type={iso_building_type!r}. Valid: {valid}"
+            ) from exc
+
+        if all(self._table["th"][c] is None for c in ("D", "B", "A")):
+            self.warnings.append(
+                f"ISO 52120 provides no D/B/A factors for '{iso_building_type}' "
+                "(only class C = 1). Thermal/electric savings cannot be quantified "
+                "for this building type."
+            )
+
+    # ---- factors ----
+    def factor(self, kind: str, bac_class: str) -> Optional[float]:
+        """BAC efficiency factor, or None if the standard gives none."""
+        return self._table.get(kind, {}).get(bac_class)
+
+    def bac_class_from_score(self, score: float) -> str:
+        """
+        Map an SRI domain score (0-100) to a BAC class.
+
+        APPROXIMATION — not defined by ISO 52120. See class docstring.
+        """
+        for upper, cls in self.class_thresholds:
+            if score < upper:
+                return cls
+        return "A"
+
+    # ---- core calculation ----
+    def savings_kwh_by_end_use(
+        self,
+        current_classes: dict[str, str],
+        proposed_classes: dict[str, str],
+    ) -> dict[str, float]:
+        """
+        Energy saved (kWh/yr) per end-use, for BAC class changes per SRI domain.
+
+        A negative value means the "upgrade" increases consumption (possible if a
+        class is lowered). Missing factors contribute 0.0 and add a warning.
+        """
+        savings: dict[str, float] = {}
+        for domain, targets in self.DOMAIN_TO_END_USE.items():
+            cur_cls = current_classes.get(domain)
+            new_cls = proposed_classes.get(domain)
+            if cur_cls is None or new_cls is None or cur_cls == new_cls:
+                continue
+            for attr, kind in targets:
+                energy = getattr(self.breakdown, attr, 0.0)
+                if energy <= 0:
+                    continue
+                f_cur = self.factor(kind, cur_cls)
+                f_new = self.factor(kind, new_cls)
+                if f_cur is None or f_new is None or f_cur == 0:
+                    self.warnings.append(
+                        f"No ISO 52120 factor for {self.iso_building_type} / "
+                        f"{kind} / {cur_cls}->{new_cls}; {attr} contributes 0."
+                    )
+                    continue
+                savings[attr] = savings.get(attr, 0.0) + energy * (1.0 - f_new / f_cur)
+        return savings
+
+    def estimate_energy_savings(
+        self,
+        domain_score_baseline: dict[str, float],
+        domain_score_proposed: dict[str, float],
+    ) -> float:
+        """Total energy saved (kWh/yr) from SRI domain-score improvements."""
+        cur = {d: self.bac_class_from_score(domain_score_baseline.get(d, 0.0))
+               for d in self.DOMAIN_TO_END_USE}
+        new = {d: self.bac_class_from_score(domain_score_proposed.get(d, 0.0))
+               for d in self.DOMAIN_TO_END_USE}
+        return sum(self.savings_kwh_by_end_use(cur, new).values())
+
+    def estimate_co2_reduction(
+        self,
+        domain_score_baseline: dict[str, float],
+        domain_score_proposed: dict[str, float],
+    ) -> float:
+        """
+        Annual CO₂ reduction (kg). Drop-in replacement for
+        CO2ReductionEstimator.estimate_co2_reduction (same signature), so it can
+        be handed straight to SRIUpgradeProblem.
+        """
+        return max(0.0, self.estimate_energy_savings(
+            domain_score_baseline, domain_score_proposed) * self.co2_factor)
+
+
 class CO2ReductionEstimator:
     """
+    LEGACY heuristic estimator — superseded by ISO52120EnergyEstimator.
+
+    Kept for comparison/back-compat. Unlike the ISO 52120 method, the per-domain
+    savings potentials below are literature rules of thumb, not a standard.
+
     Estimates annual CO₂ reduction from SRI-driven upgrades.
 
     The model links SRI domain improvements to estimated energy savings
@@ -823,6 +1168,14 @@ def run_optimisation(
     Returns:
         List of ParetoSolution objects representing the non-dominated front.
     """
+    if not PYGMO_AVAILABLE:
+        raise ImportError(
+            "pygmo is required for run_optimisation() but is not installed "
+            "(no wheels for Python 3.13). Use SRI/sri_moo_excel.py "
+            "(run_optimisation_excel — exact, Excel-backed) or "
+            "SRI/sri_moo_runner_pymoo.py instead."
+        )
+
     # ---- Load data ----
     if verbose:
         print("=" * 70)
@@ -857,15 +1210,32 @@ def run_optimisation(
         domains_present=building.domains_present,
     )
 
+    pricing_catalogue, reference_floor_area_m2 = load_pricing_catalogue(
+        os.path.join(data_dir, "pricing_catalogue.json")
+    )
     cost_estimator = UpgradeCostEstimator(
         catalogue=catalogue,
         floor_area_m2=building.floor_area_m2,
+        pricing_catalogue=pricing_catalogue,
+        reference_floor_area_m2=reference_floor_area_m2,
     )
 
-    co2_estimator = CO2ReductionEstimator(
-        annual_energy_kwh=building.annual_energy_kwh,
-        co2_factor=building.co2_emission_factor,
+    # Energy/CO₂ via the ISO 52120-1 BAC efficiency factor method.
+    breakdown = building.energy_breakdown or EnergyBreakdown.from_total(
+        building.annual_energy_kwh
     )
+    co2_estimator = ISO52120EnergyEstimator(
+        breakdown=breakdown,
+        co2_factor=building.co2_emission_factor,
+        usage_type=building.usage_type,
+        iso_building_type=building.iso_building_type,
+    )
+    if verbose:
+        if building.energy_breakdown is None:
+            print("       [!] No measured energy breakdown supplied — using the "
+                  "DEFAULT_END_USE_SHARE assumption.")
+        for w in co2_estimator.warnings:
+            print(f"       [!] {w}")
 
     # ---- Create pygmo UDP ----
     if verbose:

@@ -1,0 +1,244 @@
+{
+  "building": {
+    "type": "non-residential",
+    "usage": "non-residential - educational",
+    "location": "Ireland",
+    "floor_area_band": "500 - 1.000 m²",
+    "year_band": "1960 - 1990",
+    "state": "Original",
+    "weightings": "Default",
+    "method": "B",
+    "domains_present": {
+      "Heating": 1,
+      "Domestic hot water": 1,
+      "Cooling": 0,
+      "Ventilation": 1,
+      "Lighting": 1,
+      "Dynamic building envelope": 1,
+      "Electricity": 1,
+      "Electric vehicle charging": 2,
+      "Monitoring and control": 1
+    }
+  },
+  "domains": {
+    "Heating": {
+      "H-1a": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-1b": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "H-1c": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-1d": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-1f": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "H-2a": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-2b": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-2d": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "H-3": {
+        "level": 2,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "H-4": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    },
+    "Domestic hot water": {
+      "DHW-1a": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "DHW-1b": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "DHW-1d": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "DHW-2b": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "DHW-3": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    },
+    "Ventilation": {
+      "V-1a": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "V-1c": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "V-2c": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "V-2d": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "V-3": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "V-6": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    },
+    "Lighting": {
+      "L-1a": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "L-2": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    },
+    "Dynamic building envelope": {
+      "DE-1": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "DE-2": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "DE-4": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    },
+    "Electricity": {
+      "E-11": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "E-12": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "E-2": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "E-3": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "E-4": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      },
+      "E-5": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "E-8": {
+        "level": 0,
+        "applicable": 0,
+        "share": 1.0
+      }
+    },
+    "Monitoring and control": {
+      "MC-13": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-25": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-28": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-29": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-3": {
+        "level": 1,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-30": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-4": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      },
+      "MC-9": {
+        "level": 0,
+        "applicable": 1,
+        "share": 1.0
+      }
+    }
+  }
+}

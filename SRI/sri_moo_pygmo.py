@@ -150,52 +150,48 @@ CO2_FACTORS: dict[str, float] = {
     "South-East Europe":  0.480,   # RO / BG …
 }
 
-# Approximate upgrade cost curves per service (€, delta per level step).
-# Structure: { service_code: [cost_L0→L1, cost_L1→L2, cost_L2→L3, cost_L3→L4] }
-# PLACEHOLDER values (domain-representative) — replace with live/market data.
-# IMPORTANT: keys MUST be real catalogue codes from the *_Domain_Weights.json
-# files, otherwise load_domain_services() silently falls back to a flat default
-# and these numbers never apply.
-DEFAULT_UPGRADE_COSTS: dict[str, list[float]] = {
-    # Heating
-    "H-1a": [800,  1200, 2500, 4000], "H-1b": [800,  1200, 2500, 4000],
-    "H-1c": [800,  1200, 2500, 4000], "H-1d": [800,  1200, 2500, 4000],
-    "H-1f": [800,  1200, 2500, 4000], "H-2a": [1500, 2500, 5000, 0],
-    "H-2b": [1500, 2500, 5000, 0],    "H-2d": [1500, 2500, 5000, 0],
-    "H-3":  [2000, 3500, 6000, 8000], "H-4":  [2000, 3500, 6000, 8000],
-    # DHW
-    "DHW-1a": [400, 700, 1200, 2000], "DHW-1b": [400, 700, 1200, 2000],
-    "DHW-1d": [400, 700, 1200, 2000], "DHW-2b": [600, 1000, 2000, 3500],
-    "DHW-3":  [600, 1000, 2000, 3500],
-    # Cooling
-    "C-1a": [1000, 1800, 3000, 5000], "C-1b": [1000, 1800, 3000, 5000],
-    "C-1c": [1000, 1800, 3000, 5000], "C-1d": [1000, 1800, 3000, 5000],
-    "C-1f": [1000, 1800, 3000, 5000], "C-1g": [1000, 1800, 3000, 5000],
-    "C-2a": [1000, 1800, 3000, 5000], "C-2b": [1000, 1800, 3000, 5000],
-    "C-3":  [1000, 1800, 3000, 5000], "C-4":  [1000, 1800, 3000, 5000],
-    # Ventilation
-    "V-1a": [1500, 2500, 4000, 6000], "V-1c": [1500, 2500, 4000, 6000],
-    "V-2c": [1500, 2500, 4000, 6000], "V-2d": [1500, 2500, 4000, 6000],
-    "V-3":  [1500, 2500, 4000, 6000], "V-6":  [1500, 2500, 4000, 6000],
-    # Lighting
-    "L-1a": [500, 1000, 2000, 3500],  "L-2":  [500, 1000, 2000, 3500],
-    # Dynamic building envelope
-    "DE-1": [1200, 2000, 4000, 6000], "DE-2": [1200, 2000, 4000, 6000],
-    "DE-4": [1200, 2000, 4000, 6000],
-    # Electricity
-    "E-2":  [2000, 3500, 6000, 9000], "E-3":  [2000, 3500, 6000, 9000],
-    "E-4":  [2000, 3500, 6000, 9000], "E-5":  [2000, 3500, 6000, 9000],
-    "E-8":  [2000, 3500, 6000, 9000], "E-11": [2000, 3500, 6000, 9000],
-    "E-12": [2000, 3500, 6000, 9000],
-    # EV charging
-    "EV-15": [3000, 5000, 8000, 12000], "EV-16": [3000, 5000, 8000, 12000],
-    "EV-17": [3000, 5000, 8000, 12000],
-    # Monitoring & Control
-    "MC-3":  [500, 1000, 2000, 4000], "MC-4":  [500, 1000, 2000, 4000],
-    "MC-9":  [500, 1000, 2000, 4000], "MC-13": [500, 1000, 2000, 4000],
-    "MC-25": [500, 1000, 2000, 4000], "MC-28": [500, 1000, 2000, 4000],
-    "MC-29": [500, 1000, 2000, 4000], "MC-30": [500, 1000, 2000, 4000],
-}
+def load_pricing_catalogue(path: str | Path) -> tuple[dict[str, dict[int, tuple[float, float]]], float]:
+    """
+    Load the canonical pricing catalogue (weights/pricing_catalogue.json,
+    shared with sri_moo_optimizer.py — see the plan this migration followed).
+
+    Returns ({service_code: {level: (cumulative_flat_eur, cumulative_eur_per_m2)}},
+    reference_floor_area_m2). Levels still marked "TBD" (flat_eur is null) are
+    omitted so callers fall through to their own default.
+    """
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    reference_area = data["_meta"]["reference_floor_area_m2"]
+    catalogue: dict[str, dict[int, tuple[float, float]]] = {}
+    for code, svc in data["services"].items():
+        levels: dict[int, tuple[float, float]] = {}
+        for level_str, entry in svc["levels"].items():
+            if entry["flat_eur"] is not None:
+                levels[int(level_str)] = (entry["flat_eur"], entry["eur_per_m2"] or 0.0)
+        catalogue[code] = levels
+    return catalogue, reference_area
+
+
+def _levels_to_deltas(
+    levels: dict[int, tuple[float, float]], max_level: int
+) -> tuple[list[float], list[float]]:
+    """
+    Convert one service's cumulative-from-baseline (flat_eur, eur_per_m2) per
+    level into two per-level-step delta lists (flat, rate), the shape
+    TBSService.upgrade_costs/upgrade_rates expect. Falls back to a flat
+    unpriced default (no area rate) if the catalogue has no entry at all for
+    this service, so newly-added services without pricing yet don't silently
+    become free upgrades.
+    """
+    if not levels:
+        return [1000.0] * max_level, [0.0] * max_level
+    flat_deltas, rate_deltas = [], []
+    prev_flat, prev_rate = 0.0, 0.0
+    for lvl in range(1, max_level + 1):
+        flat, rate = levels.get(lvl, (prev_flat, prev_rate))
+        flat_deltas.append(max(0.0, flat - prev_flat))
+        rate_deltas.append(rate - prev_rate)
+        prev_flat, prev_rate = flat, rate
+    return flat_deltas, rate_deltas
 
 
 @dataclass
@@ -207,8 +203,9 @@ class TBSService:
     current_level: int
     max_level: int
     impact_scores: dict[str, dict[str, float]]   # criterion → level_key → score
-    upgrade_costs: list[float]                    # cost[i] = cost to go from level i → i+1
+    upgrade_costs: list[float]                    # cost[i] = flat €  to go from level i → i+1, at reference floor area
     applicable: bool = True
+    upgrade_rates: list[float] = field(default_factory=list)  # rate[i] = marginal €/m² to go from level i → i+1
 
     # ── helpers ──────────────────────────────────────────────────────────────
     def score_at(self, level: int, criterion: str) -> float:
@@ -222,13 +219,23 @@ class TBSService:
         return max(scores) if scores else 0.0
 
     def cost_to_upgrade(self, from_level: int, to_level: int) -> float:
-        """Cumulative cost to move from from_level → to_level."""
+        """Cumulative flat cost (at reference floor area) to move from_level → to_level."""
         if to_level <= from_level:
             return 0.0
         total = 0.0
         for step in range(from_level, to_level):
             if step < len(self.upgrade_costs):
                 total += self.upgrade_costs[step]
+        return total
+
+    def rate_to_upgrade(self, from_level: int, to_level: int) -> float:
+        """Cumulative marginal €/m² rate to move from_level → to_level."""
+        if to_level <= from_level:
+            return 0.0
+        total = 0.0
+        for step in range(from_level, to_level):
+            if step < len(self.upgrade_rates):
+                total += self.upgrade_rates[step]
         return total
 
 
@@ -391,15 +398,23 @@ class CostEngine:
     # CO₂ intensity of upgrade activities (kgCO₂e per € spent) – RICS estimate
     EMBODIED_CO2_FACTOR: float = 0.0025   # kg CO₂e / €
 
-    def __init__(self, profile: BuildingProfile) -> None:
+    def __init__(self, profile: BuildingProfile, reference_floor_area_m2: float = 1500.0) -> None:
         self.profile = profile
+        self.reference_floor_area_m2 = reference_floor_area_m2
+
+    def cost_of_service(self, service: "TBSService", from_level: int, to_level: int) -> float:
+        """Area-adjusted upgrade cost for one service (flat + marginal €/m² rate)."""
+        flat = service.cost_to_upgrade(from_level, to_level)
+        rate = service.rate_to_upgrade(from_level, to_level)
+        area_delta = self.profile.floor_area_m2 - self.reference_floor_area_m2
+        return max(0.0, flat + rate * area_delta)
 
     def capex(self, x: np.ndarray) -> float:
         """Sum of incremental upgrade costs for all services in vector x."""
         total = 0.0
         for i, service in enumerate(self.profile.applicable_services):
             proposed = int(round(x[i]))
-            total += service.cost_to_upgrade(service.current_level, proposed)
+            total += self.cost_of_service(service, service.current_level, proposed)
         return total
 
     def co2_reduction_kgpa(
@@ -768,8 +783,8 @@ class SRIOptimiser:
                         "domain":       service.domain,
                         "from_level":   service.current_level,
                         "to_level":     proposed_lvl,
-                        "cost_eur":     service.cost_to_upgrade(
-                                            service.current_level, proposed_lvl
+                        "cost_eur":     cost_engine.cost_of_service(
+                                            service, service.current_level, proposed_lvl
                                         ),
                     })
 
@@ -805,7 +820,7 @@ def load_domain_services(
     domain_json_path: str | Path,
     domain_name: str,
     current_levels: dict[str, int],
-    upgrade_costs: dict[str, list[float]] | None = None,
+    pricing_catalogue: dict[str, dict[int, tuple[float, float]]] | None = None,
 ) -> list[TBSService]:
     """
     Parse a domain JSON file (e.g. Heating_Domain_Weights.json) into a list
@@ -816,9 +831,10 @@ def load_domain_services(
     domain_json_path  : path to e.g. "Heating_Domain_Weights.json"
     domain_name       : human label, e.g. "Heating"
     current_levels    : dict mapping service_code → current assessed level
-    upgrade_costs     : optional override dict; falls back to DEFAULT_UPGRADE_COSTS
+    pricing_catalogue : {service_code: {level: (flat_eur, eur_per_m2)}} from
+                        load_pricing_catalogue(); a missing code falls back
+                        to a flat unpriced default (see _levels_to_deltas).
     """
-    _costs = upgrade_costs or DEFAULT_UPGRADE_COSTS
     data = json.loads(Path(domain_json_path).read_text())
 
     services: list[TBSService] = []
@@ -830,6 +846,9 @@ def load_domain_services(
 
         # Normalise impact_scores keys to project's canonical form
         raw_scores = entry.get("impact_scores", {})
+        flat_deltas, rate_deltas = _levels_to_deltas(
+            (pricing_catalogue or {}).get(code, {}), max_level
+        )
         services.append(
             TBSService(
                 code=code,
@@ -838,7 +857,8 @@ def load_domain_services(
                 current_level=current_levels.get(code, 0),
                 max_level=max_level,
                 impact_scores=raw_scores,
-                upgrade_costs=_costs.get(code, [1000.0] * max_level),
+                upgrade_costs=flat_deltas,
+                upgrade_rates=rate_deltas,
                 applicable=True,
             )
         )
@@ -938,11 +958,21 @@ def build_example_profile(data_dir: str = ".") -> BuildingProfile:
         "Monitoring and control":     "MC_Domain_Weights.json",
     }
 
+    pricing_path = data_dir / "pricing_catalogue.json"
+    # CostEngine defaults reference_floor_area_m2 to 1500.0, matching this
+    # catalogue's _meta.reference_floor_area_m2 — only the per-service costs
+    # are needed here.
+    pricing_catalogue, _ = (
+        load_pricing_catalogue(pricing_path) if pricing_path.exists() else ({}, 1500.0)
+    )
+    if not pricing_path.exists():
+        print(f"  [WARN] Pricing catalogue not found: {pricing_path} — using flat unpriced defaults")
+
     all_services: list[TBSService] = []
     for domain_name, fname in domain_files.items():
         fpath = data_dir / fname
         if fpath.exists():
-            svcs = load_domain_services(fpath, domain_name, current_levels)
+            svcs = load_domain_services(fpath, domain_name, current_levels, pricing_catalogue)
             all_services.extend(svcs)
         else:
             print(f"  [WARN] Domain file not found: {fpath}")

@@ -1,0 +1,24 @@
+{
+  "sri": 8.4,
+  "sri_class": "Lower than 20%",
+  "impacts": {
+    "energy_efficiency": 15.08,
+    "energy_flexibility_and_storage": 4.28,
+    "comfort": 12.59,
+    "convenience": 7.58,
+    "health,_wellbeing_and_accessibility": 8.33,
+    "maintenance_and_fault_prediction": 7.65,
+    "information_to_occupants": 9.76
+  },
+  "domains": {
+    "Heating": 17.95,
+    "Domestic hot water": 0.0,
+    "Cooling": 0.0,
+    "Ventilation": 10.59,
+    "Lighting": 0.0,
+    "Dynamic building envelope": 0.0,
+    "Electricity": 3.33,
+    "Electric vehicle charging": 0.0,
+    "Monitoring and control": 9.06
+  }
+}

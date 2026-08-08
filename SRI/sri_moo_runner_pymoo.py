@@ -31,6 +31,7 @@ if "pygmo" not in sys.modules:
 from sri_moo_optimizer import (
     load_service_catalogue,
     load_weighting_factors,
+    load_pricing_catalogue,
     SRIScoringEngine,
     UpgradeCostEstimator,
     CO2ReductionEstimator,
@@ -196,7 +197,14 @@ def run_optimisation_pymoo(
         catalogue, domain_weights, impact_weights,
         building.applicable_services, building.domains_present,
     )
-    cost_estimator = UpgradeCostEstimator(catalogue, building.floor_area_m2)
+    pricing_catalogue, reference_floor_area_m2 = load_pricing_catalogue(
+        os.path.join(data_dir, "pricing_catalogue.json")
+    )
+    cost_estimator = UpgradeCostEstimator(
+        catalogue, building.floor_area_m2,
+        pricing_catalogue=pricing_catalogue,
+        reference_floor_area_m2=reference_floor_area_m2,
+    )
     co2_estimator = CO2ReductionEstimator(
         building.annual_energy_kwh, building.co2_emission_factor,
     )
